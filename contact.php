@@ -25,7 +25,7 @@
                         <span class="contact100-form-title">
                             Send Us A Message
                         </span>
-                        <label class="label-input100" for="first-name">Tell us your name *</label>
+                        <label class="label-input100" for="first-name">Tell us your name <span class="text-danger"> *</span></label>
                         <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
                             <input id="first-name" class="input100" type="text" name="first-name" placeholder="First name" required>
                             <span class="focus-input100"></span>
@@ -34,18 +34,18 @@
                             <input class="input100" type="text" name="last-name" placeholder="Last name" required>
                             <span class="focus-input100"></span>
                         </div>
-                        <label class="label-input100" for="email">Enter your email *</label>
+                        <label class="label-input100" for="email">Enter your email <span class="text-danger"> *</span></label>
                         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                             <input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com" required>
                             <span class="focus-input100"></span>
                         </div>
-                        <label class="label-input100" for="phone">Enter phone number</label>
+                        <label class="label-input100" for="phone">Enter phone number <span class="text-danger"> *</span></label>
                         <div class="wrap-input100">
                             <input id="phone" class="input100" type="text" name="phone" placeholder="Eg. +91 800 000000" onkeypress="if ( isNaN(this.value +
                             String.fromCharCode(event.keyCode) )) return false;" maxlength="12" minlength="10" required>
                             <span class="focus-input100"></span>
                         </div>
-                        <label class="label-input100" for="message">Message *</label>
+                        <label class="label-input100" for="message">Message <span class="text-danger"> *</span></label>
                         <div class="wrap-input100 validate-input" data-validate="Message is required">
                             <textarea id="message" class="input100" name="message" placeholder="Write us a message" required></textarea>
                             <span class="focus-input100"></span>

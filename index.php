@@ -525,7 +525,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="heading">
-          <h5 class="text-center text-uppercase"><span>l</span>atest News & Events</h5>
+          <h5 class="text-center text-uppercase"><span>L</span>atest News & Events</h5>
         </div>
       </div>
     </div>

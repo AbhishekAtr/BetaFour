@@ -38,7 +38,7 @@
               </ul>
             </li>
             <li><a href="#" class="nav-link">New Release</a></li>
-            <li><a href="#" class="nav-link">Catalogue</a></li>
+            <li><a href="catalogue.php" class="nav-link">Catalogue</a></li>
           </ul>
         </nav>
       </div>
@@ -59,7 +59,7 @@
       <div class="col-lg-4">
         <nav class="site-navigation" role="navigation" style="padding-left: 25px;">
           <ul class="site-menu main-menu js-clone-nav  d-none d-lg-block ">
-            <li class=""><a href="#" class="nav-link">News & Events</a></li>
+            <li class=""><a href="news.php" class="nav-link">News & Events</a></li>
             <li><a href="about.php" class="nav-link">About</a></li>
             <li><a href="contact.php" class="nav-link">Contact</a></li>
           </ul>
