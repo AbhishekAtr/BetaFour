@@ -26,18 +26,18 @@
             <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Amplifier</a></li>
-                <li><a class="dropdown-item" href="#">Coloumns</a></li>
-                <li><a class="dropdown-item" href="#">Speakers</a></li>
-                <li><a class="dropdown-item" href="#">Portable Speakers system</a></li>
-                <li><a class="dropdown-item" href="#">Microphone</a></li>
-                <li><a class="dropdown-item" href="#">HF Drivers/Driver Unit</a></li>
-                <li><a class="dropdown-item" href="#">Digital Echoes</a></li>
-                <li><a class="dropdown-item" href="#">Line Array</a></li>
-                <li><a class="dropdown-item" href="#">Mixing Console</a></li>
+                <li><a class="dropdown-item" href="products.php">Amplifier</a></li>
+                <li><a class="dropdown-item" href="products.php">Coloumns</a></li>
+                <li><a class="dropdown-item" href="products.php">Speakers</a></li>
+                <li><a class="dropdown-item" href="products.php">Portable Speakers system</a></li>
+                <li><a class="dropdown-item" href="products.php">Microphone</a></li>
+                <li><a class="dropdown-item" href="products.php">HF Drivers/Driver Unit</a></li>
+                <li><a class="dropdown-item" href="products.php">Digital Echoes</a></li>
+                <li><a class="dropdown-item" href="products.php">Line Array</a></li>
+                <li><a class="dropdown-item" href="products.php">Mixing Console</a></li>
               </ul>
             </li>
-            <li><a href="#" class="nav-link">New Release</a></li>
+            <li><a href="newrelease.php" class="nav-link">New Release</a></li>
             <li><a href="catalogue.php" class="nav-link">Catalogue</a></li>
           </ul>
         </nav>

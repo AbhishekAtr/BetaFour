@@ -1,5 +1,3 @@
-
-
 <!-- Header -->
 
 <?php include 'include/header.php'; ?>
@@ -226,176 +224,187 @@
     <div class="row justify-content-center text-center">
       <div class="col-md-8 col-lg-6">
         <div class="header heading">
-          <h6 class="text-uppercase text-danger">New Released</h6>
-          <h2 class="text-uppercase"><span>P</span>roducts</h2>
+          <h6 class="text-uppercase text-danger">Products</h6>
+          <h2 class="text-uppercase"><span>C</span>ategories</h2>
         </div>
       </div>
     </div>
 </section>
 <section class="section-products">
-<div class="container">
-  <div class="row">
-    <!-- Single Product -->
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div id="product-1" class="single-product">
-        <div class="part-1 image1">
-          <!-- <ul>
+  <div class="container">
+    <div class="row">
+      <!-- Single Product -->
+      <div class="col-md-4">
+        <div id="product-1" class="single-product">
+          <div class="part-1 image9">
+            <span class="new">new</span>
+            <!-- <ul>
 														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
 														<li><a href="#"><i class="fas fa-heart"></i></a></li>
 														<li><a href="#"><i class="fas fa-plus"></i></a></li>
 														<li><a href="#"><i class="fas fa-expand"></i></a></li>
 												</ul> -->
-        </div>
-        <div class="part-2">
-          <h3 class="product-title text-danger">Portable Speaker Systems</h3>
-          <p>Class D power amplifiers with its total power upto 500W provide tremendous sound pressure and incredible low-frequency impact.</p>
+          </div>
+          <div class="part-2">
+            <h3 class="product-title text-danger">Speakers</h3>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Single Product -->
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div id="product-2" class="single-product">
-        <div class="part-1 image2">
-          <span class="discount">15% off</span>
-          <!--	<ul>
+
+      <!-- Single Product -->
+      <div class="col-md-4">
+        <div id="product-2" class="single-product">
+          <div class="part-1 image2">
+            <span class="discount">15% off</span>
+            <!--	<ul>
 														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
 														<li><a href="#"><i class="fas fa-heart"></i></a></li>
 														<li><a href="#"><i class="fas fa-plus"></i></a></li>
 														<li><a href="#"><i class="fas fa-expand"></i></a></li>
 												</ul>-->
-        </div>
-        <div class="part-2">
-          <h3 class="product-title text-danger">AMPLIFIERS</h3>
-          <p>Standard width 19”inch (48.3cm) rack mounting. Housed in rugged, all steel 3u chassis.</p>
-        </div>
-      </div>
-    </div>
-    <!-- Single Product -->
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div id="product-3" class="single-product">
-        <div class="part-1 image3">
-          <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-        </div>
-        <div class="part-2">
-          <h3 class="product-title text-danger">MICROPHONES</h3>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <div class="part-2">
+            <h3 class="product-title text-danger">AMPLIFIERS</h3>
+            <p>Standard width 19”inch (48.3cm) rack mounting. Housed in rugged, all steel 3u chassis.</p>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Single Product -->
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div id="product-4" class="single-product">
-        <div class="part-1 image4">
-          <span class="new">new</span>
-          <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-        </div>
-        <div class="part-2">
-          <h3 class="product-title text-danger">Mixing Consoles</h3>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
-    <!-- Single Product -->
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div id="product-1" class="single-product">
-        <div class="part-1 image5">
-          <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-        </div>
-        <div class="part-2">
-          <h3 class="product-title text-danger">Columns</h3>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
-    <!-- Single Product -->
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div id="product-2" class="single-product">
-        <div class="part-1 image6">
-          <span class="discount">15% off</span>
-          <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-        </div>
-        <div class="part-2">
-          <h3 class="product-title text-danger">HF Drivers/Driver Unit</h3>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
-    <!-- Single Product -->
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div id="product-3" class="single-product">
-        <div class="part-1 image7">
-          <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-        </div>
-        <div class="part-2">
-          <h3 class="product-title text-danger">Digital Echoes</h3>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
-    <!-- Single Product -->
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div id="product-4" class="single-product">
-        <div class="part-1 image8">
-          <span class="new">new</span>
-          <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-        </div>
-        <div class="part-2">
-          <h3 class="product-title text-danger">Line Array</h3>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-4 col-xl-3">
-      <div id="product-1" class="single-product">
-        <div class="part-1 image9">
-          <span class="new">new</span>
-          <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-        </div>
-        <div class="part-2">
-          <h3 class="product-title text-danger">Speakers</h3>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </div>
 
+      <!-- Single Product -->
+      <div class="col-md-4">
+        <div id="product-1" class="single-product">
+          <div class="part-1 image5">
+            <!-- <ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul> -->
+          </div>
+          <div class="part-2">
+            <h3 class="product-title text-danger">Columns</h3>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Product -->
+      <div class="col-md-4">
+        <div id="product-4" class="single-product">
+          <div class="part-1 image4">
+            <span class="new">new</span>
+            <!-- <ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul> -->
+          </div>
+          <div class="part-2">
+            <h3 class="product-title text-danger">Mixing Consoles</h3>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Product -->
+      <div class="col-md-4 ">
+        <div id="product-3" class="single-product">
+          <div class="part-1 image3">
+            <!-- <ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul> -->
+          </div>
+          <div class="part-2">
+            <h3 class="product-title text-danger">MICROPHONES</h3>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Product -->
+      <div class="col-md-4">
+        <div id="product-2" class="single-product">
+          <div class="part-1 image6">
+            <span class="discount">15% off</span>
+            <!-- <ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul> -->
+          </div>
+          <div class="part-2">
+            <h3 class="product-title text-danger">HF Drivers/Driver Unit</h3>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div id="product-1" class="single-product">
+          <div class="part-1 image1">
+            <!-- <ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul> -->
+          </div>
+
+          <div class="part-2">
+            <h3 class="product-title text-danger">Portable Speaker Systems</h3>
+            <p>Class D power amplifiers with its total power upto 500W provide tremendous sound pressure and incredible low-frequency impact.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Single Product -->
+      <div class="col-md-4">
+        <div id="product-3" class="single-product">
+          <div class="part-1 image7">
+            <!-- <ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul> -->
+          </div>
+          <div class="part-2">
+            <h3 class="product-title text-danger">Digital Echoes</h3>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Product -->
+      <div class="col-md-4">
+        <div id="product-4" class="single-product">
+          <div class="part-1 image8">
+            <span class="new">new</span>
+            <!-- <ul>
+														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+														<li><a href="#"><i class="fas fa-heart"></i></a></li>
+														<li><a href="#"><i class="fas fa-plus"></i></a></li>
+														<li><a href="#"><i class="fas fa-expand"></i></a></li>
+												</ul> -->
+          </div>
+          <div class="part-2">
+            <h3 class="product-title text-danger">New Release</h3>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
   </div>
-</div>
-</div>
+  </div>
 </section>
 <!-- end -->
 
@@ -487,36 +496,54 @@
     </div>
 </section>
 <div class="container why-us">
-    <div class="row mt-5">
-      <div class="col-sm-4 col-lg-4">
-        <div class="box">
-          <i class="fa fa-coffee" aria-hidden="true"></i>
-          <h4 class="text-uppercase">Experience</h4>
-          <p>We have experience of more than 25 years in the Music System Industry.</p>
-          <a href="">Read More...</a>
-        </div>
+  <div class="row mt-5">
+    <div class="col-sm-4 col-lg-4">
+      <div class="box">
+        <i class="fa fa-coffee" aria-hidden="true"></i>
+        <h4 class="text-uppercase">Experience</h4>
+        <p>We have experience of more than 25 years in the Music System Industry.</p>
+        <a href="">Read More...</a>
       </div>
-      <div class="col-sm-4 col-lg-4">
-        <div class="box">
-          <i class="fa fa-life-ring" aria-hidden="true"></i>
-          <h4 class="text-uppercase">Expertise</h4>
-          <p>We have well educated and expert engineers from the industry</p>
-          <a href="">Read More...</a>
-        </div>
-      </div>
-      <div class="col-sm-4 col-lg-4">
-        <div class="box">
-          <i class="fa fa-expand" aria-hidden="true"></i>
-          <h4 class="text-uppercase">Engineering</h4>
-          <p>We have world-class engineering and research lab for the PA systems.</p>
-          <a href="">Read More...</a>
-        </div>
-      </div>
-
     </div>
+    <div class="col-sm-4 col-lg-4">
+      <div class="box">
+        <i class="fa fa-life-ring" aria-hidden="true"></i>
+        <h4 class="text-uppercase">Expertise</h4>
+        <p>We have well educated and expert engineers from the industry</p>
+        <a href="">Read More...</a>
+      </div>
+    </div>
+    <div class="col-sm-4 col-lg-4">
+      <div class="box">
+        <i class="fa fa-expand" aria-hidden="true"></i>
+        <h4 class="text-uppercase">Engineering</h4>
+        <p>We have world-class engineering and research lab for the PA systems.</p>
+        <a href="">Read More...</a>
+      </div>
+    </div>
+
   </div>
 </div>
+</div>
 <!-- End Why Us Section -->
+
+
+<!-- section Video -->
+
+<div class="container-fluid my-5">
+  <div class="row">
+    <div class="col-lg-12">
+    <iframe width="100%" height="800" src="https://www.youtube.com/embed/f-nUl94jDsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <video class="wp-video-shortcode" id="video-5-1_from_mejs" preload="metadata" src="https://www.youtube.com/watch?v=f-nUl94jDsg&amp;_=1" style="width: 100%; height: 100%; display: none;">
+        <source type="video/youtube" src="https://www.youtube.com/watch?v=f-nUl94jDsg&amp;_=1"><a href="https://www.youtube.com/watch?v=f-nUl94jDsg">https://www.youtube.com/watch?v=f-nUl94jDsg</a>
+      </video>
+    </div>
+  </div>
+
+</div>
+
+<!-- end -->
 
 <!-- News Section start -->
 
@@ -650,17 +677,17 @@
   <h4 class="text-uppercase">Our Others <span>B</span>rands</h4>
 </div>
 <div class="container my-5">
- <div class="row text-center">
-   <div class="col-md-4 col-lg-4">
-     <img src="images/brands/1.png" alt="">
-   </div>
-   <div class="col-md-4 col-lg-4">
-     <img src="images/brands/SM-LOGO-png-1536x585.png" alt="">
-   </div>
-   <div class="col-md-4 col-lg-4">
-     <img src="images/brands/SMK-circle-logo-png-150x150.png" alt="">
-   </div>
- </div>
+  <div class="row text-center">
+    <div class="col-md-4 col-lg-4">
+      <img src="images/brands/1.png" alt="">
+    </div>
+    <div class="col-md-4 col-lg-4">
+      <img src="images/brands/SM-LOGO-png-1536x585.png" alt="">
+    </div>
+    <div class="col-md-4 col-lg-4">
+      <img src="images/brands/SMK-circle-logo-png-150x150.png" alt="">
+    </div>
+  </div>
 </div>
 
 <!-- end -->
