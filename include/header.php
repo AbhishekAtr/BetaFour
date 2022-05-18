@@ -1,6 +1,11 @@
 <!-- CSS-url -->
 
-<?php include 'include/css-url.php'; ?>
+<?php include 'include/css-url.php';
+include 'connection.php';
+$sql = "SELECT * FROM `categories`";
+
+
+?>
 
 <!-- Header Start -->
 
@@ -26,15 +31,33 @@
             <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="products.php">Amplifier</a></li>
-                <li><a class="dropdown-item" href="products.php">Coloumns</a></li>
+                <?php
+                if (mysqli_query($conn, $sql)) {
+                  echo "";
+                } else {
+                  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
+                $count = 1;
+                $result = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($result) > 0) {
+
+                  while ($row = mysqli_fetch_array($result)) { ?>
+                    <li><a class="dropdown-item" href="products.php"><?php echo $row['cat_title']; ?></a></li>
+                <?php
+                    $count++;
+                  }
+                } else {
+                  echo '0 results';
+                }
+                ?>
+                <!-- <li><a class="dropdown-item" href="products.php">Coloumns</a></li>
                 <li><a class="dropdown-item" href="products.php">Speakers</a></li>
                 <li><a class="dropdown-item" href="products.php">Portable Speakers system</a></li>
                 <li><a class="dropdown-item" href="products.php">Microphone</a></li>
                 <li><a class="dropdown-item" href="products.php">HF Drivers/Driver Unit</a></li>
                 <li><a class="dropdown-item" href="products.php">Digital Echoes</a></li>
                 <li><a class="dropdown-item" href="products.php">Line Array</a></li>
-                <li><a class="dropdown-item" href="products.php">Mixing Console</a></li>
+                <li><a class="dropdown-item" href="products.php">Mixing Console</a></li> -->
               </ul>
             </li>
             <li><a href="newrelease.php" class="nav-link">New Release</a></li>

@@ -1,25 +1,56 @@
+
+
+
 <!-- Header -->
 
-<?php include 'include/header.php'; ?>
+<?php include 'include/header.php';
 
+include 'connection.php';
+$url = "http://localhost/betafour-static/admin/";
+
+$sql = "SELECT * FROM `home-slider`";
+$result = mysqli_query($conn, $sql);
+$num = mysqli_num_rows($result);
+
+?>
 <!-- slider Start -->
+
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="images/slider/31278.jpg" alt="First slide">
+  <?php
+  for($i=1;$i<=$num;$i++)
+  {
+	  $row=mysqli_fetch_array($result);
+	  
+  ?>
+  
+  <?php 
+  if($i==1)
+  {
+  ?>
+        <div class="carousel-item active">
+          <img class="d-block w-100" height="600" src="<?php echo $url . $row['image_url'] ?>" />
+        </div>
+  <?php	
+  }
+  else
+  {
+	?> 
+  	<div class="carousel-item">
+      <img class="d-block w-100" height="600" src="<?php echo $url . $row['image_url'] ?>" />
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/slider/cute-dj-woman-having-fun-playing-music-club-party.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/slider/139829080868534.jpg" alt="Third slide">
-    </div>
+ 
+  <?php
+   }
+  }
+  ?>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -30,7 +61,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
 <!-- end -->
 
 <!-- section New Release products start -->
@@ -246,7 +276,7 @@
 												</ul> -->
           </div>
           <div class="part-2">
-            <h3 class="product-title text-danger">Speakers</h3>
+            <h3 class="product-title text-danger text-uppercase">Speakers</h3>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
@@ -265,7 +295,7 @@
 												</ul>-->
           </div>
           <div class="part-2">
-            <h3 class="product-title text-danger">AMPLIFIERS</h3>
+            <h3 class="product-title text-danger text-uppercase">AMPLIFIERS</h3>
             <p>Standard width 19”inch (48.3cm) rack mounting. Housed in rugged, all steel 3u chassis.</p>
           </div>
         </div>
@@ -283,7 +313,7 @@
 												</ul> -->
           </div>
           <div class="part-2">
-            <h3 class="product-title text-danger">Columns</h3>
+            <h3 class="product-title text-danger text-uppercase">Columns</h3>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
@@ -302,7 +332,7 @@
 												</ul> -->
           </div>
           <div class="part-2">
-            <h3 class="product-title text-danger">Mixing Consoles</h3>
+            <h3 class="product-title text-danger text-uppercase">Mixing Consoles</h3>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
@@ -320,7 +350,7 @@
 												</ul> -->
           </div>
           <div class="part-2">
-            <h3 class="product-title text-danger">MICROPHONES</h3>
+            <h3 class="product-title text-danger text-uppercase">MICROPHONES</h3>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
@@ -339,7 +369,7 @@
 												</ul> -->
           </div>
           <div class="part-2">
-            <h3 class="product-title text-danger">HF Drivers/Driver Unit</h3>
+            <h3 class="product-title text-danger text-uppercase">HF Drivers/Driver Unit</h3>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
@@ -357,7 +387,7 @@
           </div>
 
           <div class="part-2">
-            <h3 class="product-title text-danger">Portable Speaker Systems</h3>
+            <h3 class="product-title text-danger text-uppercase">Portable Speaker Systems</h3>
             <p>Class D power amplifiers with its total power upto 500W provide tremendous sound pressure and incredible low-frequency impact.</p>
           </div>
         </div>
@@ -376,7 +406,7 @@
 												</ul> -->
           </div>
           <div class="part-2">
-            <h3 class="product-title text-danger">Digital Echoes</h3>
+            <h3 class="product-title text-danger text-uppercase">Digital Echoes</h3>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
@@ -395,7 +425,7 @@
 												</ul> -->
           </div>
           <div class="part-2">
-            <h3 class="product-title text-danger">New Release</h3>
+            <h3 class="product-title text-danger text-uppercase">New Release</h3>
             <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
@@ -533,7 +563,7 @@
 <div class="container-fluid my-5">
   <div class="row">
     <div class="col-lg-12">
-    <iframe width="100%" height="800" src="https://www.youtube.com/embed/f-nUl94jDsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="100%" height="800" src="https://www.youtube.com/embed/f-nUl94jDsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
       <video class="wp-video-shortcode" id="video-5-1_from_mejs" preload="metadata" src="https://www.youtube.com/watch?v=f-nUl94jDsg&amp;_=1" style="width: 100%; height: 100%; display: none;">
         <source type="video/youtube" src="https://www.youtube.com/watch?v=f-nUl94jDsg&amp;_=1"><a href="https://www.youtube.com/watch?v=f-nUl94jDsg">https://www.youtube.com/watch?v=f-nUl94jDsg</a>
@@ -682,7 +712,7 @@
       <img src="images/brands/1.png" alt="">
     </div>
     <div class="col-md-4 col-lg-4">
-      <img src="images/brands/SM-LOGO-png-1536x585.png" alt="">
+      <img src="images/brands/SM-LOGO-png-1536x585.png" alt="" style="width: 350px;">
     </div>
     <div class="col-md-4 col-lg-4">
       <img src="images/brands/SMK-circle-logo-png-150x150.png" alt="">

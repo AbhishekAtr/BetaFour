@@ -204,7 +204,7 @@
      <img src="images/brands/1.png" alt="">
    </div>
    <div class="col-md-4 col-lg-4">
-     <img src="images/brands/SM-LOGO-png-1536x585.png" alt="">
+     <img src="images/brands/SM-LOGO-png-1536x585.png" alt="" class="w-100">
    </div>
    <div class="col-md-4 col-lg-4">
      <img src="images/brands/SMK-circle-logo-png-150x150.png" alt="">

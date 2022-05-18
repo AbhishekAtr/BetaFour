@@ -164,6 +164,33 @@ function changeImage(element) {
 
 	var main_prodcut_image = document.getElementById('main_product_image');
 	main_prodcut_image.src = element.src;
-	
+
 
 }
+
+// $(document).ready(function(){
+//     $('.customer-logos').slick({
+//         slidesToShow: 1,
+//         slidesToScroll: 1,
+//         autoplay: true,
+//         autoplaySpeed: 1500,
+//         arrows: true,
+//         dots: true,
+//         pauseOnHover: false,
+//         responsive: [{
+//             breakpoint: 768,
+//             settings: {
+//                 slidesToShow: 4
+//             }
+//         }, {
+//             breakpoint: 520,
+//             settings: {
+//                 slidesToShow: 3
+//             }
+//         }]
+//     });
+// });
+
+
+
+
