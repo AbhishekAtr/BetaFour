@@ -229,7 +229,7 @@ label::after {
 
 .ml-10
 {
-    margin-left: 100px;
+    padding: 25px 150px;
 }
 
 .mr-lf-2-per {
@@ -252,4 +252,10 @@ label::after {
 {
     color: red;
     font-size: 15px;
+}
+.d_none{
+    display: none;
+}
+.display_block{
+    display: block !important;
 }

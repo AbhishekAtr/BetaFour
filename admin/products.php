@@ -1,6 +1,6 @@
 <?php
 // Include the database configuration file  
-require_once 'partials/db_connect.php';
+include 'partials/db_connect.php';
 
 // If file upload form is submitted 
 $status = false;
@@ -25,26 +25,29 @@ if (isset($_POST["p_insert"])) {
 
             $imgContent = addslashes(file_get_contents($image));
             $destinationfile = 'upload/' . $fileName;
-            move_uploaded_file($image, $destinationfile);
-            // Insert image content into database
-            $insert = "INSERT INTO `products`( `product_cat`, `product_title`, `product_qty`, `product_desc`, `product_img`) VALUES ('$product_cat','$product_title','$product_qty','$product_desc','$destinationfile')";
-            if ($insert) {
-                $status = true;
+            if (move_uploaded_file($image, $destinationfile)) {
+                // Insert image content into database
+                $insert = "INSERT INTO `products`( `product_cat`, `product_title`, `product_qty`, `product_desc`, `product_img`) VALUES ('$product_cat','$product_title','$product_qty','$product_desc','$destinationfile')";
+                $smt=$conn->prepare($insert);
+                $smt->execute();
+                if ($insert) {
+                    $status = true;
+                } else {
+                    $statusMsg = "File upload failed, please try again.";
+                }
             } else {
-                $statusMsg = "File upload failed, please try again.";
+                $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
             }
         } else {
-            $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
+            $statusMsg = 'Please select an image file to upload.';
         }
-    } else {
-        $statusMsg = 'Please select an image file to upload.';
     }
 }
 ?>
 
 
 <?php include "include/css-url.php"; ?>
-<?php include "partials/header.php"; ?>
+
 <?php include "partials/sidebar.php"; ?>
 
 <?php
@@ -70,28 +73,28 @@ if ($statusMsg) {
 }
 ?>
 
-<div class="content-body">
+<div class="content-body" id="main">
     <div class="container">
 
-        <form class="ml-10 mt-5" method="post" action="products.php" enctype="multipart/form-data">
+        <form class="mt-5" method="post" action="products.php" enctype="multipart/form-data">
             <div class="row page-titles mx-0">
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="productname" class="control-label">Product Name <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" id="p_name" name="p_name" placeholder="Enter category name">
+                        <input type="text" class="form-control" id="p_name" name="p_name" placeholder="Enter category name" required>
                     </div>
                 </div>
 
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="description" class="control-label">Product Description <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" id="p_desc" name="p_desc" placeholder="Enter category name">
+                        <input type="text" class="form-control" id="p_desc" name="p_desc" placeholder="Enter category name" required>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" id="p_qty" name="p_qty" placeholder="Enter category name">
+                        <input type="text" class="form-control" id="p_qty" name="p_qty" placeholder="Enter category name" required>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -99,7 +102,7 @@ if ($statusMsg) {
                         <label for="image" class="control-label">Product Image <sup class="mandatory">*</sup></label>
                         <div class="input-group mb-3">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="p_image" name="p_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif">
+                                <input type="file" class="custom-file-input" id="p_image" name="p_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
                                 <label class="custom-file-label">Choose file</label>
                             </div>
                         </div>
@@ -108,7 +111,7 @@ if ($statusMsg) {
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Category<sup class="mandatory">*</sup> </label>
-                        <select class="form-control " name="p_cat" id="p_cat">
+                        <select class="form-control " name="p_cat" id="p_cat" required>
                             <option selected>Select Category</option>
                             <?php
 
@@ -126,7 +129,7 @@ if ($statusMsg) {
                                 while ($row = mysqli_fetch_array($result)) { ?>
 
 
-                                    <option value="1"><?php echo $row['cat_title']; ?> </option>
+                                    <option value="<?php echo $row['cat_title']; ?>"><?php echo $row['cat_title']; ?> </option>
                             <?php
                                     $count++;
                                 }
@@ -154,7 +157,7 @@ if ($statusMsg) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card ml-10">
+                <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-3">
@@ -177,7 +180,7 @@ if ($statusMsg) {
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>S.no</th>
@@ -214,21 +217,19 @@ if ($statusMsg) {
                                                 <td><?php echo $row['product_qty']; ?></td>
                                                 <td><?php echo $row['product_cat']; ?></td>
                                                 <td>
-                                                    <a href='home-slider.php?pid=<?php echo $row['product_id']; ?>' data-toggle="modal" data-target="#exampleModal" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
-                                                        <a href='home-slider.php?pid=<?php echo $row['product_id']; ?>' class="btn btn-danger" ng-click="deleteModal(item)"><i class="fa fa-trash"></i></a>
+                                                    <a href='editproducts.php?id=<?php echo $row['product_id']; ?>'  type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
+                                                    <a href='#' type="button" class="btn btn-danger deletebtn"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                            <?php
+
+                                    <?php
                                             $count++;
                                         }
                                     } else {
                                         echo '0 results';
                                     }
-                                            ?>
-                                                </td>
-                                            </tr>
+                                    ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -245,3 +246,27 @@ if ($statusMsg) {
 
 
 <?php include "include/js-url.php"; ?>
+<?php include "include/deletemodal.php"; ?>
+
+<script>
+  $(document).ready(function() {
+
+    $('.deletebtn').on('click', function() {
+
+      $('#deletemodal').modal('show');
+
+      $tr = $(this).closest('tr');
+
+      var data = $tr.children("td").map(function() {
+        return $(this).text();
+      }).get();
+
+      console.log(data);
+
+      $('#delete_id').val(data[0]);
+
+    });
+  });
+
+ 
+</script>

@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <?php include "include/css-url.php"; ?>
-<?php include "partials/header.php"; ?>
+
 <?php include "partials/sidebar.php"; ?>
 
 <?php
@@ -49,14 +49,14 @@ if ($showError) {
 }
 ?>
 
-<div class="content-body">
+<div class="content-body" id="main">
     <div class="container">
-        <form class="ml-10 mt-5" method="post" action="categories.php">
+        <form class=" mt-5" method="post" action="categories.php">
             <div class="row page-titles mx-0">
                 <div class="col-md-4 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Category Name <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" id="category" name="category"  placeholder="Enter category name">
+                        <input type="text" class="form-control" id="category" name="category" placeholder="Enter category name" required>
                     </div>
                 </div>
                 <div class="form-group col-md-4">
@@ -74,138 +74,115 @@ if ($showError) {
     </div>
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card ml-10">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <div class="showmargin" style="float:left;" ng-init="count='10'">
-                                <label>Show </label>
-                                <select class="entries" name="count" ng-model="itemsPerPage">
-                                    <option ng-value="10" selected="selected">10</option>
-                                    <option ng-value="20">20</option>
-                                    <option ng-value="50">50</option>
-                                    <option ng-value="70">70</option>
-                                    <option ng-value="100">100</option>
-                                </select>
-                                <label for="">Entries</label>
+    <div class="container ">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card ">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="showmargin" style="float:left;" ng-init="count='10'">
+                                    <label>Show </label>
+                                    <select class="entries" name="count" ng-model="itemsPerPage">
+                                        <option ng-value="10" selected="selected">10</option>
+                                        <option ng-value="20">20</option>
+                                        <option ng-value="50">50</option>
+                                        <option ng-value="70">70</option>
+                                        <option ng-value="100">100</option>
+                                    </select>
+                                    <label for="">Entries</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 offset-6">
+                                <div class="form-group">
+                                    <input type="search" class="form-control" placeholder="search..." ng-model="filterPro">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 offset-6">
-                            <div class="form-group">
-                                <input type="search" class="form-control" placeholder="search..." ng-model="filterPro">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>S.no</th>
-                                    <th>Name</th>
-                                    <th class="wd-10">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <div class="table-responsive">
+                            <table class="table  table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>S.no</th>
+                                        <th>Name</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                                <?php
+                                    <?php
 
-                                include 'partials/db_connect.php';
-                                $sql = "SELECT * from `categories`";
-                                if (mysqli_query($conn, $sql)) {
-                                    echo "";
-                                } else {
-                                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                                }
-                                $count = 1;
-                                $result = mysqli_query($conn, $sql);
-                                if (mysqli_num_rows($result) > 0) {
-
-                                    while ($row = mysqli_fetch_array($result)) { ?>
-
-                                        <tr>
-                                            <td><?php echo $row['cat_id']; ?></td>
-
-                                            <td><?php echo $row['cat_title']; ?></td>
-                                            <td>
-                                                <a href='home-slider.php?id=<?php echo $row['cat_id']; ?>' data-toggle="modal" data-target="#exampleModal" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
-                                                    <a href='home-slider.php?id=<?php echo $row['cat_id']; ?>' class="btn btn-danger" ng-click="deleteModal(item)"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                        <?php
-                                        $count++;
+                                    include 'partials/db_connect.php';
+                                    $sql = "SELECT * from `categories`";
+                                    if (mysqli_query($conn, $sql)) {
+                                        echo "";
+                                    } else {
+                                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                                     }
-                                } else {
-                                    echo '0 results';
-                                }
-                                        ?>
-                                            </td>
-                                        </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div style="margin: 10px;">
-                        <dir-pagination-controls class="pull-right pagination" max-size="8" direction-links="true" boundary-links="true"></dir-pagination-controls>
-                    </div>
+                                    $count = 1;
+                                    $result = mysqli_query($conn, $sql);
+                                    if (mysqli_num_rows($result) > 0) {
 
+                                        while ($row = mysqli_fetch_array($result)) { ?>
+
+                                            <tr>
+                                                <td><?php echo $row['cat_id']; ?></td>
+
+                                                <td><?php echo $row['cat_title']; ?></td>
+                                                <td>
+                                                    <a href='editcategories.php?id=<?php echo $row['cat_id'] ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
+                                                        <a href='#' class="btn btn-danger deletebtn" type="button"><i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+
+                                    <?php
+                                            $count++;
+                                        }
+                                    } else {
+                                        echo '0 results';
+                                    }
+                                    ?>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="margin: 10px;">
+                            <dir-pagination-controls class="pull-right pagination" max-size="8" direction-links="true" boundary-links="true"></dir-pagination-controls>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 <?php include "include/js-url.php"; ?>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="categories.php" method="POST">
-                    <div class="form-group">
-                        <label for="categoryname">Category Name</label>
-                        <input type="text" class="form-control" id="category" name="category" placeholder="Enter Category Name">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer justify-content-start">
+<?php include "include/deletemodal.php"; ?>
 
-                <button type="submit" name="c_update" class="btn btn-warning">Update Category</button>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="categories.php" method="POST">
-                    <div class="form-group">
-                        <label for="categoryname">Category Name</label>
-                        <input type="text" class="form-control" id="category" name="category" placeholder="Enter Category Name">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer justify-content-start">
-                <button type="submit" name="c_insert" class="btn btn-primary">Update Category</button>
-            </div>
-        </div>
-    </div>
-</div> -->
+
+<script>
+  $(document).ready(function() {
+
+    $('.deletebtn').on('click', function() {
+
+      $('#deletemodal').modal('show');
+
+      $tr = $(this).closest('tr');
+
+      var data = $tr.children("td").map(function() {
+        return $(this).text();
+      }).get();
+
+      console.log(data);
+
+      $('#delete_id').val(data[0]);
+
+    });
+  });
+
+ 
+</script>
+
+

@@ -781,6 +781,7 @@ a:hover {
   .card-slider {
     width: 100%;
   }
+  
 
   .release_section {
     padding: 0px !important;
@@ -829,12 +830,24 @@ a:hover {
   display: flex !important;
   flex-direction: column;
   /* height: 250px; */
-  border-radius: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2); */
   background-color: white;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.9);
   transition: all 0.1s linear;
+}
+
+.s_card
+{
+  border: none !important;
+  padding: 50px !important;
+}
+
+.s_card:hover
+{
+  border: none !important;
+  box-shadow:  none !important;
 }
 
 @media screen and (max-width: 600px) {
@@ -2989,8 +3002,3 @@ input[type=range]::-webkit-slider-thumb {
   transform: scale(1.2,1.2) rotate(5deg);
 }
 
-.slider
-{
-  display: flex;
-  justify-content: center;
-}

@@ -10,15 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($result);
     if ($num == 1) {
-       $login = true;
-       session_start();
-       $_SESSION['loggedin'] = true;
-       $_SESSION['username'] = $username;
-       header("location: home-slider.php");
-    }
-
-    else{
-        $showError= "Incorrect Credentials";
+        $login = true;
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $username;
+        header("location: home-slider.php");
+    } else {
+        $showError = "Incorrect Credentials";
     }
 }
 ?>
@@ -27,27 +25,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php include 'include/css-url.php'; ?>
 
-    <?php
-    if($login) {
-        
-        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+<?php
+if ($login) {
+
+    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Hurry !!!!</strong> Login Successfully.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>';
-    }
+}
 
-    if($showError) {
-        
-        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error</strong> '. $showError .'
+if ($showError) {
+
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error</strong> ' . $showError . '
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>';
-    }
-    ?>
+}
+?>
 
 
 <div class="container">
