@@ -156,7 +156,7 @@ if ($statusMsg) {
             <div class="col-md-3 mt-2">
                 <div class="form-group">
                     <div class="input-group  mt-4">
-                        <button type="submit" name="p_insert" title="Submit" class="btn btn-info">Update Products</button>
+                        <button type="submit" name="p_insert" title="Submit" class="btn btn-info">Upload</button>
                     </div>
                 </div>
             </div>

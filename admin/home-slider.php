@@ -156,34 +156,9 @@ if ($statusMsg) {
 
 </div>
 </div>
-<?php include "include/deletemodal.php"; ?>
 <?php include "include/js-url.php"; ?>
 
-
-<script>
-  $(document).ready(function() {
-
-    $('.deletebtn').on('click', function() {
-
-      $('#deletemodal').modal('show');
-
-      $tr = $(this).closest('tr');
-
-      var data = $tr.children("td").map(function() {
-        return $(this).text();
-      }).get();
-
-      console.log(data);
-
-      $('#delete_id').val(data[0]);
-
-    });
-  });
-
- 
-</script>
-
-
+<?php include "include/deletemodal.php"; ?>
 
    
 

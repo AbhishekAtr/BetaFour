@@ -8,7 +8,7 @@ $statusMsg = false;
 
 if (isset($_POST['update'])) {
     $id = $_GET['id'];
-
+    
     $title = $_POST['title'];
     $status = 'error';
     if (!empty($_FILES["e_image"]["name"])) {
@@ -25,32 +25,32 @@ if (isset($_POST['update'])) {
             $imgContent = addslashes(file_get_contents($image));
             $destinationfile = 'upload/' . $fileName;
             if (move_uploaded_file($image, $destinationfile)) {
-                // Update image content into database
-                $query = "UPDATE `home-slider` SET `Id`='$id', `image_url`='$destinationfile', `slider_title`= '$title' WHERE Id='$id'";
-                $smt = $conn->prepare($query);
-                $smt->execute();
-                if ($query) {
-                    $status = true;
-                    header('location: home-slider.php');
-                } else {
-                    $statusMsg = "File upload failed, please try again.";
-                }
-            } else {
-                $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
-            }
-        } else {
-            $statusMsg = 'Please select an image file to upload.';
-        }
-    }
+                 // Update image content into database
+                 $query = "UPDATE `home-slider` SET `Id`='$id', `image_url`='$destinationfile', `slider_title`= '$title' WHERE Id='$id'";
+                 $smt=$conn->prepare($query);
+                 $smt->execute();
+                 if ($query) {
+                     $status = true;
+                     header('location: home-slider.php');
+                 } else {
+                     $statusMsg = "File upload failed, please try again.";
+                 }
+             } else {
+                 $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
+             }
+         } else {
+             $statusMsg = 'Please select an image file to upload.';
+         }
+     }
 }
 ?>
 
 
 
-<?php
-$id = $_GET['id'];
-$query = mysqli_query($conn, "SELECT * from `home-slider` where Id='$id'");
-$row = mysqli_fetch_array($query);
+<?php 
+$id=$_GET['id'];
+$query=mysqli_query($conn,"SELECT * from `home-slider` where Id='$id'");
+$row=mysqli_fetch_array($query);
 ?>
 
 
@@ -79,34 +79,32 @@ if ($statusMsg) {
     </div>';
 }
 ?>
-<div class="container">
-    <form class="mt-4" method="post" action="edithomeslider.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
-        <div class="row page-titles">
-            <div class="col-md-4 col-sm-6">
-                <div class="form-group">
-                    <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="e_image" file-input="packageFile" accept=".jpg, .jpeg, .png">
-                            <label class="custom-file-label">Choose file</label>
-                        </div>
+
+<form class="mt-4" method="post" action="edithomeslider.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
+    <div class="row page-titles">
+        <div class="col-md-4 col-sm-6">
+            <div class="form-group">
+                <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="e_image" file-input="packageFile" accept=".jpg, .jpeg, .png">
+                        <label class="custom-file-label">Choose file</label>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="form-group">
-                    <label for="input-rounded" class="control-label">Title<sup class="mandatory">*</sup> </label>
-                    <input type="Title" class="form-control mt-4" name="title" placeholder="Title">
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                <label></label>
-                <div class="input-group mt-4 mr-tp-1-per">
-                    <button type="submit" name="update" title="Submit" class="btn btn-info">Update Sliders</button>
-                    <!-- <button type="button" title="Cancel" class="btn btn-danger mr-lf-2-per" ng-click="cancel()">Cancel</button> -->
-                </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="form-group">
+                <label for="input-rounded" class="control-label">Title<sup class="mandatory">*</sup> </label>
+                <input type="Title" class="form-control mt-4" name="title" placeholder="Title">
             </div>
         </div>
-    </form>
-</div>
+        <div class="form-group col-md-4">
+            <label></label>
+            <div class="input-group mt-4 mr-tp-1-per">
+                <button type="submit" name="update" title="Submit" class="btn btn-info">Update</button>
+                <!-- <button type="button" title="Cancel" class="btn btn-danger mr-lf-2-per" ng-click="cancel()">Cancel</button> -->
+            </div>
+        </div>
+
 <?php include "include/js-url.php"; ?>

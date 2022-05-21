@@ -2,7 +2,6 @@
 
 <?php include 'include/css-url.php';
 include 'connection.php';
-$sql = "SELECT * FROM `categories`";
 
 
 ?>
@@ -32,6 +31,8 @@ $sql = "SELECT * FROM `categories`";
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <?php
+                $sql = "SELECT * FROM `categories`";
+               
                 if (mysqli_query($conn, $sql)) {
                   echo "";
                 } else {
@@ -42,7 +43,7 @@ $sql = "SELECT * FROM `categories`";
                 if (mysqli_num_rows($result) > 0) {
 
                   while ($row = mysqli_fetch_array($result)) { ?>
-                    <li><a class="dropdown-item" href="products.php"><?php echo $row['cat_title']; ?></a></li>
+                    <li><a class="dropdown-item" href="products.php?cat_name=<?php echo $row['cat_title']; ?>"><?php echo $row['cat_title']; ?></a></li>
                 <?php
                     $count++;
                   }

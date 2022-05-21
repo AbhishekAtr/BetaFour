@@ -242,7 +242,7 @@
                         <i class='fa fa-th-large nav_icon'></i>
                         <span class="nav_name">Dashboard</span>
                     </a> -->
-                    <a href="home-slider.php" class="nav_link active">
+                    <a href="home-slider.php" class="nav_link">
                         <i class='fa fa-home nav_icon'></i>
                         <span class="nav_name">Home-Slider</span>
                     </a>
@@ -253,10 +253,6 @@
                     <a href="categories.php" class="nav_link">
                         <i class='fa fa-bookmark nav_icon'></i>
                         <span class="nav_name">Categories</span>
-                    </a>
-                    <a href="newrelease.php" class="nav_link">
-                        <i class='fa fa-snowflake-o nav_icon'></i>
-                        <span class="nav_name">New Release</span>
                     </a>
                     <!-- <a href="#" class="nav_link">
                         <i class='fa fa-folder nav_icon'></i>

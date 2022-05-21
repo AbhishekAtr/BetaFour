@@ -1,9 +1,6 @@
 <!-- Header -->
-<?php include 'include/css-url.php'; ?>
+
 <?php include 'include/header.php';
-
-include 'connection.php';
-
 
 $connect = mysqli_connect("localhost", "root", "", "beta-four");
 function make_query($connect)
