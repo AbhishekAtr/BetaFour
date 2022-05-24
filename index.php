@@ -59,14 +59,14 @@ function make_slide_indicators($connect)
       <?php
       if ($i == 1) {
       ?>
-        <div class="carousel-item active">
-          <img class="d-block w-100" height="600" src="<?php echo $url . $row['image_url'] ?>" />
+        <div class="carousel-item active mt-5">
+          <img class="d-block w-100" src="<?php echo $url . $row['image_url'] ?>" />
         </div>
       <?php
       } else {
       ?>
-        <div class="carousel-item">
-          <img class="d-block w-100" height="600" src="<?php echo $url . $row['image_url'] ?>" />
+        <div class="carousel-item mt-5">
+          <img class="d-block w-100" src="<?php echo $url . $row['image_url'] ?>" />
         </div>
 
     <?php
@@ -286,173 +286,38 @@ function make_slide_indicators($connect)
   <div class="container">
     <div class="row">
       <!-- Single Product -->
-      <div class="col-md-4">
-        <div id="product-1" class="single-product">
-          <div class="part-1 image9">
-            <span class="new">new</span>
-            <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-          </div>
-          <div class="part-2">
-            <h3 class="product-title text-danger text-uppercase">Speakers</h3>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- Single Product -->
-      <div class="col-md-4">
-        <div id="product-2" class="single-product">
-          <div class="part-1 image2">
-            <span class="discount">15% off</span>
-            <!--	<ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul>-->
-          </div>
-          <div class="part-2">
-            <h3 class="product-title text-danger text-uppercase">AMPLIFIERS</h3>
-            <p>Standard width 19”inch (48.3cm) rack mounting. Housed in rugged, all steel 3u chassis.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Single Product -->
-      <div class="col-md-4">
-        <div id="product-1" class="single-product">
-          <div class="part-1 image5">
-            <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-          </div>
-          <div class="part-2">
-            <h3 class="product-title text-danger text-uppercase">Columns</h3>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Single Product -->
-      <div class="col-md-4">
-        <div id="product-4" class="single-product">
-          <div class="part-1 image4">
-            <span class="new">new</span>
-            <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-          </div>
-          <div class="part-2">
-            <h3 class="product-title text-danger text-uppercase">Mixing Consoles</h3>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Single Product -->
-      <div class="col-md-4 ">
-        <div id="product-3" class="single-product">
-          <div class="part-1 image3">
-            <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-          </div>
-          <div class="part-2">
-            <h3 class="product-title text-danger text-uppercase">MICROPHONES</h3>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Single Product -->
-      <div class="col-md-4">
-        <div id="product-2" class="single-product">
-          <div class="part-1 image6">
-            <span class="discount">15% off</span>
-            <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-          </div>
-          <div class="part-2">
-            <h3 class="product-title text-danger text-uppercase">HF Drivers/Driver Unit</h3>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div id="product-1" class="single-product">
-          <div class="part-1 image1">
-            <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-          </div>
-
-          <div class="part-2">
-            <h3 class="product-title text-danger text-uppercase">Portable Speaker Systems</h3>
-            <p>Class D power amplifiers with its total power upto 500W provide tremendous sound pressure and incredible low-frequency impact.</p>
-          </div>
-        </div>
-      </div>
+      <?php
 
 
-      <!-- Single Product -->
-      <div class="col-md-4">
-        <div id="product-3" class="single-product">
-          <div class="part-1 image7">
-            <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
-          </div>
-          <div class="part-2">
-            <h3 class="product-title text-danger text-uppercase">Digital Echoes</h3>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
+      $sql = "SELECT * from `categories`";
+      if (mysqli_query($conn, $sql)) {
+      } else {
+      }
+      $count = 1;
+      $result = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($result) > 0) {
 
-      <!-- Single Product -->
-      <div class="col-md-4">
-        <div id="product-4" class="single-product">
-          <div class="part-1 image8">
-            <span class="new">new</span>
-            <!-- <ul>
-														<li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-plus"></i></a></li>
-														<li><a href="#"><i class="fas fa-expand"></i></a></li>
-												</ul> -->
+        while ($row = mysqli_fetch_array($result)) { ?>
+          <div class="col-md-4">
+            <div id="product-1" class="single-product">
+              <div class="part-1 hover-zoom text-center">
+                <img src="<?php echo $url . $row['cat_img']; ?>" alt="">
+              </div>
+              <div class="part-2">
+                <h3 class="product-title text-danger text-uppercase text-center"><?php echo $row['cat_title']; ?></h3>
+                <p class="text-center"><?php echo $row['cat_desc']; ?></p>
+              </div>
+            </div>
           </div>
-          <div class="part-2">
-            <h3 class="product-title text-danger text-uppercase">Line Array</h3>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-      </div>
 
+      <?php
+          $count++;
+        }
+      } else {
+        echo '0 results';
+      }
+      ?>
 
     </div>
   </div>
@@ -478,58 +343,37 @@ function make_slide_indicators($connect)
   <div class="row my-5">
     <div class="col-lg-12">
       <div class="card-slider">
-        <div class="card s_card">
-          <!-- Notice that both the image and the product title are in the same link. This can massively reduce the number of redundant tabstops on a page with lots of products, creating a better UX for keyboard-only and screen reader users. -->
-          <a href="#" target="_blank" class="main-link">
-            <h2 class="title">First product title</h2>
-            <!-- This image has a descriptive alt attribute, so it helps to place it after the heading in the DOM. Flexbox is used to place it above the heading visually (see the CSS tab to see how). -->
-            <div class="image">
-              <img src="images/Products/amp-thumbnail-300x169-2.jpg" alt="Small succulent with long, spikey leaves in a mug-like planter.">
+        <?php
+        $sql = "SELECT * from `categories`";
+        if (mysqli_query($conn, $sql)) {
+        } else {
+        }
+        $count = 1;
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_array($result)) { ?>
+            <div class="card s_card text-center">
+              <!-- Notice that both the image and the product title are in the same link. This can massively reduce the number of redundant tabstops on a page with lots of products, creating a better UX for keyboard-only and screen reader users. -->
+              <a href="#" target="_blank" class="main-link">
+                <h2 class="title"><?php echo $row['cat_title']; ?></h2>
+                <!-- This image has a descriptive alt attribute, so it helps to place it after the heading in the DOM. Flexbox is used to place it above the heading visually (see the CSS tab to see how). -->
+                <div class="image">
+                  <img src="<?php echo $url . $row['cat_img']; ?>" alt="Small succulent with long, spikey leaves in a mug-like planter.">
+                </div>
+              </a>
+              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <a href="products.php?cat_name=<?php echo $row['cat_title']; ?>">
+                <button class="btn btn-danger">View all</button>
+              </a>
             </div>
-          </a>
-          <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <button class="btn btn-danger">View all</button>
-        </div>
-        <div class="card s_card">
-          <a href="#" target="_blank" class="main-link">
-            <h2 class="title">Second product title</h2>
-            <div class="image">
-              <img src="images/Products/New-release-thumbnail-300x169-1.jpg" alt="Small succulent with long, spikey leaves in a mug-like planter.">
-            </div>
-          </a>
-          <p class="description">Lorem ipsum dolor sit amet, consectetur.</p>
-          <button class="btn btn-danger">View all</button>
-        </div>
-        <div class="card s_card">
-          <a href="#" target="_blank" class="main-link">
-            <h2 class="title">Third product title</h2>
-            <div class="image">
-              <img src="images/Products/col-thumbnail-300x169-1.jpg" alt="Small succulent with long, spikey leaves in a mug-like planter.">
-            </div>
-          </a>
-          <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <button class="btn btn-danger">View all</button>
-        </div>
-        <div class="card s_card">
-          <a href="" target="_blank" class="main-link">
-            <h2 class="title">Fourth product title</h2>
-            <div class="image">
-              <img src="images/Products/Equilizers-thumbnail-300x169-1.jpg" alt="Small succulent with long, spikey leaves in a mug-like planter.">
-            </div>
-          </a>
-          <p class="description">Lorem ipsum dolor sit amet, consectetur.</p>
-          <button class="btn btn-danger">View all</button>
-        </div>
-        <div class="card s_card">
-          <a href="" target="_blank" class="main-link">
-            <h2 class="title">Fifth Product title</h2>
-            <div class="image">
-              <img src="images/Products/HF-thumbnail-300x169-1.jpg" alt="Small succulent with long, spikey leaves in a mug-like planter.">
-            </div>
-          </a>
-          <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <button class="btn btn-danger">View all</button>
-        </div>
+        <?php
+            $count++;
+          }
+        } else {
+          echo '0 results';
+        }
+        ?>
+
       </div>
     </div>
   </div>
@@ -556,7 +400,7 @@ function make_slide_indicators($connect)
         <i class="fa fa-coffee" aria-hidden="true"></i>
         <h4 class="text-uppercase">Experience</h4>
         <p>We have experience of more than 25 years in the Music System Industry.</p>
-        <a href="">Read More...</a>
+        <a href="about.php">Read More...</a>
       </div>
     </div>
     <div class="col-sm-4 col-lg-4">
@@ -564,7 +408,7 @@ function make_slide_indicators($connect)
         <i class="fa fa-life-ring" aria-hidden="true"></i>
         <h4 class="text-uppercase">Expertise</h4>
         <p>We have well educated and expert engineers from the industry</p>
-        <a href="">Read More...</a>
+        <a href="about.php">Read More...</a>
       </div>
     </div>
     <div class="col-sm-4 col-lg-4">
@@ -572,7 +416,7 @@ function make_slide_indicators($connect)
         <i class="fa fa-expand" aria-hidden="true"></i>
         <h4 class="text-uppercase">Engineering</h4>
         <p>We have world-class engineering and research lab for the PA systems.</p>
-        <a href="">Read More...</a>
+        <a href="about.php">Read More...</a>
       </div>
     </div>
 
@@ -587,7 +431,7 @@ function make_slide_indicators($connect)
 <div class="container-fluid my-5">
   <div class="row">
     <div class="col-lg-12">
-    <iframe width="100%" height="800" src="https://www.youtube.com/embed/f-nUl94jDsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="100%" height="800" src="https://www.youtube.com/embed/f-nUl94jDsg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
       <video class="wp-video-shortcode" id="video-5-1_from_mejs" preload="metadata" src="https://www.youtube.com/watch?v=f-nUl94jDsg&amp;_=1" style="width: 100%; height: 100%; display: none;">
         <source type="video/youtube" src="https://www.youtube.com/watch?v=f-nUl94jDsg&amp;_=1"><a href="https://www.youtube.com/watch?v=f-nUl94jDsg">https://www.youtube.com/watch?v=f-nUl94jDsg</a>

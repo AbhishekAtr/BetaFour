@@ -1,31 +1,60 @@
 <?php
-$showAlert = false;
-$showError = false;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include 'partials/db_connect.php';
+session_start();
+// session_regenerate_id();
 
-    $cat_title = $_POST["category"];
-
-    $exists = false;
-    if (isset($_POST['c_insert'])) {
-        $sql = "INSERT INTO `categories`( `cat_title`) VALUES ('$cat_title')";
-        $result = mysqli_query($conn, $sql);
-        if ($result) {
-            $showAlert = true;
-            header("loaction: categories.php");
-        }
-    } else {
-        $showError = "Error";
-    }
-}
 
 ?>
 
+<?php
+// Include the database configuration file  
+include 'partials/db_connect.php';
 
-<?php include "include/css-url.php"; ?>
+// If file upload form is submitted 
+$showAlert = false;
+$showError = false;
 
-<?php include "partials/sidebar.php"; ?>
+if (isset($_POST["c_insert"])) {
+    $cat_title = $_POST['category'];
+    $cat_desc = $_POST['cat_desc'];
+    $showAlert = 'error';
+    if (!empty($_FILES["c_image"]["name"])) {
+        // Get file info 
+        $fileName = basename($_FILES["c_image"]["name"]);
+        // $title = $_FILES['title']['name'];
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
 
+        // Allow certain file formats 
+        $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+        if (in_array($fileType, $allowTypes)) {
+            $image = $_FILES['c_image']['tmp_name'];
+
+            $imgContent = addslashes(file_get_contents($image));
+            $destinationfile = 'upload/' . $fileName;
+            if (move_uploaded_file($image, $destinationfile)) {
+                // Insert image content into database
+                $insert = "INSERT INTO `categories`( `cat_title`,`cat_img`, `cat_desc`) VALUES ('$cat_title','$destinationfile', ' $cat_desc')";
+                $smt=$conn->prepare($insert);
+                $smt->execute();
+                if ($insert) {
+                    $showAlert = true;
+                    header("loaction: categories.php");
+                } else {
+                    $showError = "File upload failed, please try again.";
+                }
+            } else {
+                $showError= 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
+            }
+        } else {
+            $showError = 'Please select an image file to upload.';
+        }
+    }
+}
+?>
+
+<?php 
+include "include/css-url.php";
+include "partials/sidebar.php";
+?>
 <?php
 
 if ($showAlert) {
@@ -49,14 +78,31 @@ if ($showError) {
 }
 ?>
 
-<div class="content-body" id="main">
+<div class="content-body my-5" id="main">
     <div class="container">
-        <form class=" mt-5" method="post" action="categories.php">
+        <form class=" mt-5" method="post" action="categories.php" enctype="multipart/form-data">
             <div class="row page-titles mx-0">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Category Name <sup class="mandatory">*</sup></label>
                         <input type="text" class="form-control" id="category" name="category" placeholder="Enter category name" required>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label for="cat_desc" class="control-label">Category Description <sup class="mandatory">*</sup></label>
+                        <input type="text" class="form-control" id="cat_desc" name="cat_desc" placeholder="Enter Description" required>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="c_image" name="c_image" file-input="packageFile" accept=".jpg, .jpeg, .png" required>
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group col-md-4">
@@ -66,9 +112,7 @@ if ($showError) {
                         <!-- <button type="button" title="Cancel" class="btn btn-danger mr-lf-2-per" ng-click="cancel()">Cancel</button> -->
                     </div>
                 </div>
-                <!-- <div class="col-md-4">
-                    <img class="wd-40" id="imgPreview" src="<?php echo $row['image_url']; ?>" width="100" height="100">
-                </div> -->
+               
             </div>
         </form>
     </div>
@@ -105,6 +149,8 @@ if ($showError) {
                                     <tr>
                                         <th>S.no</th>
                                         <th>Name</th>
+                                        <th>Image</th>
+                                        <th>Description</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -129,9 +175,11 @@ if ($showError) {
                                                 <td><?php echo $row['cat_id']; ?></td>
 
                                                 <td><?php echo $row['cat_title']; ?></td>
+                                                <td><?php echo $row['cat_img']; ?></td>
+                                                <td><?php echo $row['cat_desc']; ?></td>
                                                 <td>
                                                     <a href='editcategories.php?id=<?php echo $row['cat_id'] ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
-                                                        <a href='#' class="btn btn-danger deletebtn" type="button"><i class="fa fa-trash"></i></a>
+                                                    <a href='#' class="btn btn-danger deletebtn" type="button"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 

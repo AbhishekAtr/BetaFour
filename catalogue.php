@@ -35,7 +35,7 @@
 </section>
 
 <div class="container pdf">
-    <object data='images/pdf/betafour-final-catalogue.pdf' type="application/pdf" width="100%" height="700">
+    <object data='pdf/A5-Curve-Final_Beta_Four_17-05-2019.pdf' type="application/pdf" width="100%" height="700">
 
         <iframe src='images/pdf/betafour-final-catalogue.pdf' width="100%" height="700">
             <p>This browser does not support PDF!</p>

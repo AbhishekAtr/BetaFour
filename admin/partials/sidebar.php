@@ -18,6 +18,7 @@
             --header-height: 3rem;
             --nav-width: 68px;
             --first-color: #4723D9;
+            --second-color: #fff;
             --first-color-light: #AFA5D9;
             --white-color: #F7F6FB;
             --body-font: 'Nunito', sans-serif;
@@ -60,7 +61,7 @@
         }
 
         .header_toggle {
-            color: var(--first-color);
+            color: var(--second-color);
             font-size: 1.5rem;
             cursor: pointer
         }
@@ -223,7 +224,7 @@
 </head>
 
 <body>
-<header class="header" id="header">
+<header class="header" id="header" style="background-color: #4723d9;">
         <div class="header_toggle" onclick="openNav()"> <i class='fa fa-bars' id="header-toggle"></i> </div>
         <div class="header_img"> <img src="../images/download.png" alt=""> </div>
 </header>
@@ -242,7 +243,7 @@
                         <i class='fa fa-th-large nav_icon'></i>
                         <span class="nav_name">Dashboard</span>
                     </a> -->
-                    <a href="home-slider.php" class="nav_link">
+                    <a href="home-slider.php" class="nav_link active">
                         <i class='fa fa-home nav_icon'></i>
                         <span class="nav_name">Home-Slider</span>
                     </a>
@@ -253,6 +254,10 @@
                     <a href="categories.php" class="nav_link">
                         <i class='fa fa-bookmark nav_icon'></i>
                         <span class="nav_name">Categories</span>
+                    </a>
+                    <a href="new-release.php" class="nav_link">
+                        <i class='fa fa-plus nav_icon'></i>
+                        <span class="nav_name">New Release Products</span>
                     </a>
                     <!-- <a href="#" class="nav_link">
                         <i class='fa fa-folder nav_icon'></i>

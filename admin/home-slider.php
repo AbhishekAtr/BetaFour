@@ -31,7 +31,7 @@ if ($statusMsg) {
 
 <div class="content-body" id="main">
     <!-- row -->
-    <div class="container">
+    <div class="container my-5">
         <form class="mt-4" method="post" action="home-slider.php" enctype="multipart/form-data" id="hide">
             <div class="row page-titles">
                 <div class="col-md-4 col-sm-6">
@@ -69,8 +69,8 @@ if ($statusMsg) {
                 </div> -->
     </div>
     </form>
-    <div class="row">
-        <div class="col-lg-12 ">
+    <div class="row ml-3">
+        <div class="col-lg-12">
             <div class="card ">
                 <div class="card-body">
                     <div class="row">

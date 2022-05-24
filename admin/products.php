@@ -32,6 +32,7 @@ if (isset($_POST["p_insert"])) {
                 $smt->execute();
                 if ($insert) {
                     $status = true;
+                    header("location: products.php");
                 } else {
                     $statusMsg = "File upload failed, please try again.";
                 }
@@ -73,7 +74,7 @@ if ($statusMsg) {
 }
 ?>
 
-<div class="content-body" id="main">
+<div class="content-body my-5" id="main">
     <div class="container">
 
         <form class="mt-5" method="post" action="products.php" enctype="multipart/form-data">

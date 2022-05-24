@@ -87,7 +87,7 @@ if ($statusMsg) {
 }
 ?>
 
-<div class="container">
+<div class="container my-5">
 
     <form class="mt-5" method="post" action="editproducts.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
         <div class="row page-titles mx-0">

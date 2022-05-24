@@ -42,7 +42,7 @@ $result = mysqli_query($conn, $query);
           <div class=" col-md-4 mb-4">
 
             <div class="bg-image hover-zoom ripple shadow-1-strong rounded card p-2 border">
-              <a href="productdetails.php" class="text-center">
+              <a href="productdetails.php?pid=<?php echo $row['product_id']; ?>" class="text-center">
 
                 <img src="<?php echo $url . $row['product_img']; ?>" class="w-100" />
                 <div class="mt-2 card-footer">
