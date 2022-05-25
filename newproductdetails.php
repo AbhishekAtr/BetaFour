@@ -73,7 +73,7 @@ $result = mysqli_query($conn, $query);
                                     <h3 class="text-danger"><?php echo $row['title']; ?></h3>
                                     <!-- <span class="heart"><i class="fa fa-heart fa1"></i></span> -->
                                 </div>
-                                <div class="mt-2 pr-3 content">
+                                <!-- <div class="mt-2 pr-3 content">
                                     <p>All models in the product line are engineered to offer sound reinforcement professionals solutions to meet nearly any challenge. Each model is compatible with others, both mechanically and acoustically.
                                         Delivers premium-quality audio in performance.</p>
                                 </div>
@@ -143,37 +143,16 @@ $result = mysqli_query($conn, $query);
                                             <td> Pulp Paper</td>
                                         </tr>
                                     </table>
-                                    <p><span class="text-danger">Categories:</span> New Release, Speakers Tag: Power Amplifier</p>
+                                    <p><span class="text-danger">Categories:</span> New Release, Speakers Tag: Power Amplifier</p> -->
+                                    <?php echo $row['description']; ?>
                                 </div>
 
-                                <!-- <div class="ratings d-flex flex-row align-items-center">
-                            <div class="d-flex flex-row"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                            <span>441 reviews</span>
-                        </div> -->
-                                <!-- <div class="mt-5">
-                            <span class="fw-bold">Color</span>
-                            <div class="colors">
-                                <ul id="marker">
-                                    <li id="marker-1"></li>
-                                    <li id="marker-2"></li>
-                                    <li id="marker-3"></li>
-                                    <li id="marker-4"></li>
-                                    <li id="marker-5"></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="buttons d-flex flex-row mt-5 gap-3"><button class="btn btn-outline-dark">Buy Now</button> <button class="btn btn-dark">Add to Basket</button></div> -->
-                                <!-- <div class="search-option">
-                        <i class="fa fa-search-alt-2 first-search"></i>
-                        <div class="inputs"><input type="text" name="" /></div>
-                        <i class="fa fa-share-alt share"></i>
-                    </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
         <?php
-                $count++;
+                
             }
         } else {
             echo '0 results';

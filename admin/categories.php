@@ -33,7 +33,7 @@ if (isset($_POST["c_insert"])) {
             if (move_uploaded_file($image, $destinationfile)) {
                 // Insert image content into database
                 $insert = "INSERT INTO `categories`( `cat_title`,`cat_img`, `cat_desc`) VALUES ('$cat_title','$destinationfile', ' $cat_desc')";
-                $smt=$conn->prepare($insert);
+                $smt = $conn->prepare($insert);
                 $smt->execute();
                 if ($insert) {
                     $showAlert = true;
@@ -42,7 +42,7 @@ if (isset($_POST["c_insert"])) {
                     $showError = "File upload failed, please try again.";
                 }
             } else {
-                $showError= 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
+                $showError = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
             }
         } else {
             $showError = 'Please select an image file to upload.';
@@ -51,7 +51,7 @@ if (isset($_POST["c_insert"])) {
 }
 ?>
 
-<?php 
+<?php
 include "include/css-url.php";
 include "partials/sidebar.php";
 ?>
@@ -78,23 +78,23 @@ if ($showError) {
 }
 ?>
 
-<div class="content-body my-5" id="main">
-    <div class="container">
-        <form class=" mt-5" method="post" action="categories.php" enctype="multipart/form-data">
-            <div class="row page-titles mx-0">
-                <div class="col-md-6 col-sm-6">
+<div class="content-body my-5 height-100 bg-light" id="main">
+    <div class="container-fluid">
+        <form class="mt-5" method="post" action="categories.php" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Category Name <sup class="mandatory">*</sup></label>
                         <input type="text" class="form-control" id="category" name="category" placeholder="Enter category name" required>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="cat_desc" class="control-label">Category Description <sup class="mandatory">*</sup></label>
                         <input type="text" class="form-control" id="cat_desc" name="cat_desc" placeholder="Enter Description" required>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-4 col-sm-6">
                     <div class="form-group">
                         <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
                         <div class="input-group mb-3">
@@ -105,44 +105,24 @@ if ($showError) {
                         </div>
                     </div>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="col-md-2 col-sm-6">
                     <label></label>
                     <div class="input-group mr-tp-1-per">
-                        <button type="submit" name="c_insert" title="Submit" class="btn btn-info">Add Category</button>
+                        <button type="submit" name="c_insert" title="Submit" class="btn btn-warning btn-block">Add Category</button>
                         <!-- <button type="button" title="Cancel" class="btn btn-danger mr-lf-2-per" ng-click="cancel()">Cancel</button> -->
                     </div>
                 </div>
-               
+
             </div>
         </form>
     </div>
 
 
-    <div class="container ">
+    <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card ">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="showmargin" style="float:left;" ng-init="count='10'">
-                                    <label>Show </label>
-                                    <select class="entries" name="count" ng-model="itemsPerPage">
-                                        <option ng-value="10" selected="selected">10</option>
-                                        <option ng-value="20">20</option>
-                                        <option ng-value="50">50</option>
-                                        <option ng-value="70">70</option>
-                                        <option ng-value="100">100</option>
-                                    </select>
-                                    <label for="">Entries</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 offset-6">
-                                <div class="form-group">
-                                    <input type="search" class="form-control" placeholder="search..." ng-model="filterPro">
-                                </div>
-                            </div>
-                        </div>
                         <div class="table-responsive">
                             <table class="table  table-hover">
                                 <thead>
@@ -179,7 +159,7 @@ if ($showError) {
                                                 <td><?php echo $row['cat_desc']; ?></td>
                                                 <td>
                                                     <a href='editcategories.php?id=<?php echo $row['cat_id'] ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
-                                                    <a href='#' class="btn btn-danger deletebtn" type="button"><i class="fa fa-trash"></i></a>
+                                                        <a href='#' class="btn btn-danger deletebtn" type="button"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 
@@ -207,5 +187,3 @@ if ($showError) {
 <?php include "include/js-url.php"; ?>
 
 <?php include "include/deletemodal.php"; ?>
-
-

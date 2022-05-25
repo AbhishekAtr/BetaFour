@@ -79,32 +79,39 @@ if ($statusMsg) {
     </div>';
 }
 ?>
-<div class="container my-5">
-    <form class="mt-4" method="post" action="edithomeslider.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
-        <div class="row page-titles">
-            <div class="col-md-4 col-sm-6">
-                <div class="form-group">
-                    <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="e_image" file-input="packageFile" accept=".jpg, .jpeg, .png">
-                            <label class="custom-file-label">Choose file</label>
+<div class="content-body my-5 height-100 bg-light" id="main">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="mt-4" method="post" action="edithomeslider.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="e_image" name="e_image" file-input="packageFile" accept=".jpg, .jpeg, .png">
+                                        <label class="custom-file-label">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <label for="input-rounded" class="control-label">Title<sup class="mandatory">*</sup> </label>
+                            <div class="input-group mb-3">
+                                <input type="title" class="form-control" value="<?php echo $row['slider_title']; ?>" name="title" id="title" placeholder="Title" required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-6">
+                            <label></label>
+                            <div class="input-group mb-3 mt-2">
+                                <button type="submit" name="update" title="Submit" class="btn btn-warning btn-block mb-4">Update</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="form-group">
-                    <label for="input-rounded" class="control-label">Title<sup class="mandatory">*</sup> </label>
-                    <input type="Title" class="form-control mt-4" name="title" placeholder="Title">
-                </div>
-            </div>
-            <div class="form-group col-md-4">
-                <label></label>
-                <div class="input-group mt-4 mr-tp-1-per">
-                    <button type="submit" name="update" title="Submit" class="btn btn-info">Update</button>
-                    <!-- <button type="button" title="Cancel" class="btn btn-danger mr-lf-2-per" ng-click="cancel()">Cancel</button> -->
-                </div>
+                </form>
             </div>
         </div>
-        <?php include "include/js-url.php"; ?>
+    </div>
+</div>
+<?php include "include/js-url.php"; ?>

@@ -76,43 +76,44 @@ $id = $_GET['id'];
 $query = mysqli_query($conn, "SELECT * from `categories` where cat_id='$id'");
 $row = mysqli_fetch_array($query);
 ?>
-<div class="container my-5">
-    <form class=" mt-5" method="post" action="editcategories.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
-        <div class="row page-titles mx-0">
-            <div class="col-md-6 col-sm-6">
-                <div class="form-group">
-                    <label for="category" class="control-label">Category Name <sup class="mandatory">*</sup></label>
-                    <input type="text" class="form-control" value="<?php echo $row['cat_title']; ?>" name="category" placeholder="Enter category name">
+<div class="content-body my-5 height-100 bg-light" id="main">
+    <div class="container-fluid">
+        <form class="mt-5" method="post" action="editcategories.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="category" class="control-label">Category Name <sup class="mandatory">*</sup></label>
+                        <input type="text" class="form-control" value="<?php echo $row['cat_title']; ?>" name="category" placeholder="Enter category name">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="form-group">
-                    <label for="cat_desc" class="control-label">Category Description <sup class="mandatory">*</sup></label>
-                    <input type="text" class="form-control" value="<?php echo $row['cat_desc']; ?>" name="desc" placeholder="Enter category name">
+                <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="cat_desc" class="control-label">Category Description <sup class="mandatory">*</sup></label>
+                        <input type="text" class="form-control" value="<?php echo $row['cat_desc']; ?>" name="desc" placeholder="Enter category name">
+                    </div>
+
                 </div>
-                
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="form-group">
-                    <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" value="<?php echo $row['cat_img']; ?>" name="image" file-input="packageFile" accept=".jpg, .jpeg, .png" required>
-                            <label class="custom-file-label">Choose file</label>
+                <div class="col-md-4 col-sm-6">
+                    <div class="form-group">
+                        <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" value="<?php echo $row['cat_img']; ?>" name="image" file-input="packageFile" accept=".jpg, .jpeg, .png">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group col-md-4">
-                <label></label>
-                <div class="input-group mr-tp-1-per">
-                    <button type="submit" name="c_update" title="Submit" class="btn btn-info">Update Category</button>
-                    <!-- <button type="button" title="Cancel" class="btn btn-danger mr-lf-2-per" ng-click="cancel()">Cancel</button> -->
+                <div class="col-md-2 col-sm-6">
+                    <label></label>
+                    <div class="input-group mt-2">
+                        <button type="submit" name="c_update" title="Submit" class="btn btn-warning btn-block">Update Category</button>
+                        <!-- <button type="button" title="Cancel" class="btn btn-danger mr-lf-2-per" ng-click="cancel()">Cancel</button> -->
+                    </div>
                 </div>
-            </div>
-           
-        </div>
-    </form>
-</div>
 
+            </div>
+        </form>
+    </div>
+</div>
 <?php include "include/js-url.php"; ?>

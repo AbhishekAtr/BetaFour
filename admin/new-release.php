@@ -74,9 +74,8 @@ if ($statusMsg) {
 }
 ?>
 
-<div class="content-body my-5" id="main">
-    <div class="container">
-
+<div class="content-body my-5 height-100 bg-light" id="main">
+    <div class="container-fluid">
         <form class="mt-5" method="post" action="new-release.php" enctype="multipart/form-data">
             <div class="row page-titles mx-0">
                 <div class="col-md-3 col-sm-6">
@@ -86,12 +85,12 @@ if ($statusMsg) {
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
+                <!-- <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="description" class="control-label">Product Description <sup class="mandatory">*</sup></label>
                         <input type="text" class="form-control" id="n_desc" name="n_desc" placeholder="Enter category name" required>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
@@ -141,10 +140,13 @@ if ($statusMsg) {
                         </select>
                     </div>
                 </div>
-                <div class="col-md-3 mt-2">
+                <div class="col-md-12 col-sm-6">
+                    <textarea id="mytextarea" class="form-control" rows="5" placeholder="Description" spellcheck="false" name="n_desc"> </textarea>
+                </div>
+                <div class="col-md-12 col-sm-6">
                     <div class="form-group">
                         <div class="input-group  mt-4">
-                            <button type="submit" name="n_insert" title="Submit" class="btn btn-info">Upload</button>
+                            <button type="submit" name="n_insert" title="Submit" class="btn btn-success btn-block">Upload</button>
                         </div>
                     </div>
                 </div>
@@ -155,31 +157,11 @@ if ($statusMsg) {
             </div>
         </form>
     </div>
-    <div class="container">
+    <div class="container-fluid mt-3">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="showmargin" style="float:left;" ng-init="count='10'">
-                                    <label>Show </label>
-                                    <select class="entries" name="count" ng-model="itemsPerPage">
-                                        <option ng-value="10" selected="selected">10</option>
-                                        <option ng-value="20">20</option>
-                                        <option ng-value="50">50</option>
-                                        <option ng-value="70">70</option>
-                                        <option ng-value="100">100</option>
-                                    </select>
-                                    <label for="">Entries</label>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 offset-6">
-                                <div class="form-group">
-                                    <input type="search" class="form-control" placeholder="search..." ng-model="filterPro">
-                                </div>
-                            </div>
-                        </div>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
@@ -218,7 +200,7 @@ if ($statusMsg) {
                                                 <td><?php echo $row['qty']; ?></td>
                                                 <td><?php echo $row['category']; ?></td>
                                                 <td>
-                                                    <a href='editproducts.php?id=<?php echo $row['id']; ?>'  type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
+                                                    <a href='editnewrelease.php?id=<?php echo $row['id']; ?>'  type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
                                                     <a href='#' type="button" class="btn btn-danger deletebtn"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>

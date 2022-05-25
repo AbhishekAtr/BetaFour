@@ -86,87 +86,81 @@ if ($statusMsg) {
     </div>';
 }
 ?>
+<div class="content-body my-5 height-100 bg-light" id="main">
+    <div class="container-fluid">
 
-<div class="container my-5">
-
-    <form class="mt-5" method="post" action="editproducts.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
-        <div class="row page-titles mx-0">
-            <div class="col-md-3 col-sm-6">
-                <div class="form-group">
-                    <label for="productname" class="control-label">Product Name <sup class="mandatory">*</sup></label>
-                    <input type="text" class="form-control" value="<?php echo $row['product_title']; ?>" name="p_name" placeholder="Enter category name" required>
+        <form class="mt-5" method="post" action="editproducts.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
+            <div class="row page-titles mx-0">
+                <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="productname" class="control-label">Product Name <sup class="mandatory">*</sup></label>
+                        <input type="text" class="form-control" name="p_name" placeholder="Enter category name" value="<?php echo $row['product_title']; ?>">
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="form-group">
-                    <label for="description" class="control-label">Product Description <sup class="mandatory">*</sup></label>
-                    <input type="text" class="form-control" value="<?php echo $row['product_desc']; ?>" name="p_desc" placeholder="Enter category name" required>
+                <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
+                        <input type="text" class="form-control" name="p_qty" placeholder="Enter category name" value="<?php echo $row['product_qty']; ?>">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="form-group">
-                    <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
-                    <input type="text" class="form-control" value="<?php echo $row['product_qty']; ?>" name="p_qty" placeholder="Enter category name" required>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="form-group">
-                    <label for="image" class="control-label">Product Image <sup class="mandatory">*</sup></label>
-                    <div class="input-group mb-3">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="p_image" value="<?php echo $row['product_img']; ?>" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
-                            <label class="custom-file-label">Choose file</label>
+                <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="image" class="control-label">Product Image <sup class="mandatory">*</sup></label>
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="p_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="form-group">
-                    <label for="category" class="control-label">Category<sup class="mandatory">*</sup> </label>
-                    <select class="form-control " name="p_cat" value="<?php echo $row['product_cat']; ?>" required>
-                        <option selected>Select Category</option>
-                        <?php
+                <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="category" class="control-label">Category<sup class="mandatory">*</sup> </label>
+                        <select class="form-control " name="p_cat">
+                            <option selected>Select Category</option>
+                            <?php
 
-                        include 'partials/db_connect.php';
-                        $sql = "SELECT * from `categories`";
-                        if (mysqli_query($conn, $sql)) {
-                            echo "";
-                        } else {
-                            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                        }
-                        $count = 1;
-                        $result = mysqli_query($conn, $sql);
-                        if (mysqli_num_rows($result) > 0) {
-
-                            while ($row = mysqli_fetch_array($result)) { ?>
-
-
-                                <option value="<?php echo $row['cat_title']; ?>"><?php echo $row['cat_title']; ?> </option>
-                        <?php
-                                $count++;
+                            include 'partials/db_connect.php';
+                            $sql = "SELECT * from `categories`";
+                            if (mysqli_query($conn, $sql)) {
+                                echo "";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                             }
-                        } else {
-                            echo '0 results';
-                        }
-                        ?>
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-3 mt-2">
-                <div class="form-group">
-                    <div class="input-group  mt-4">
-                        <button type="submit" name="p_insert" title="Submit" class="btn btn-info">Upload</button>
+                            $count = 1;
+                            $result = mysqli_query($conn, $sql);
+                            if (mysqli_num_rows($result) > 0) {
+
+                                while ($row = mysqli_fetch_array($result)) { ?>
+                                    <option><?php echo $row['cat_title']; ?></option>
+                            <?php
+                                    $count++;
+                                }
+                            } else {
+                                echo '0 results';
+                            }
+                            ?>
+                        </select>
                     </div>
                 </div>
-            </div>
+                <div class="col-md-12">
+                    <textarea id="mytextarea" class="form-control" rows="5" placeholder="Description" spellcheck="false" name="p_desc"> </textarea>
+                </div>
+                <div class="col-md-12 mt-2">
+                    <div class="form-group">
+                        <div class="input-group  mt-4">
+                            <button type="submit" name="p_insert" title="Submit" class="btn btn-info btn-block">Upload</button>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- <div class="col-md-4">
+                <!-- <div class="col-md-4">
             <img class="wd-40" id="imgPreview" src="<?php echo $row['image_url']; ?>" width="100" height="100">
         </div> -->
-        </div>
-    </form>
+            </div>
+        </form>
+    </div>
 </div>
-
 
 <?php include "include/js-url.php"; ?>

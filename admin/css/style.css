@@ -38,7 +38,7 @@
 .sidebar {
     background-color: #6c757d !important;
     height: 92.4vh !important;
-    position:  fixed !important;
+    position: fixed !important;
     margin-left: -15px;
     height: 92.4vh;
     /* position: absolute; */
@@ -227,8 +227,7 @@ label::after {
     right: -47px;
 }
 
-.ml-10
-{
+.ml-10 {
     padding: 25px 150px;
 }
 
@@ -248,14 +247,80 @@ label::after {
     width: 17%;
 }
 
-.mandatory
-{
+.mandatory {
     color: red;
     font-size: 15px;
 }
-.d_none{
+
+.d_none {
     display: none;
 }
-.display_block{
+
+.display_block {
     display: block !important;
+}
+
+.custom-file-label::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    height: calc(1.5em + 0.75rem);
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+    color: #fff !important;
+    content: "Browse";
+    background-color: #cc1919 !important;
+    border-left: inherit;
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.container-scroller {
+    overflow: hidden;
+}
+
+.page-body-wrapper.full-page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    background: #f2edf3;
+    padding: 4.75rem 4.25rem;
+    width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.flex-grow {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.auth .auth-form-light {
+    background: #ffffff;
+}
+
+.auth form .form-group .form-control {
+    background: transparent !important;
+    border-radius: 0 !important;
+    font-size: .9375rem !important;
+}
+
+.auth form .form-group {
+    margin-bottom: 1.5rem !important;
+}
+
+.btn-login
+{
+    background: linear-gradient(80deg, #cc1919 , #e17272);
+}
+
+.bg-logo
+{
+    background: linear-gradient(80deg, #cc1919 , #e17272);
 }

@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $showError = "Incorrect Credentials";
     }
 }
+session_abort();
 ?>
 
 
@@ -46,10 +47,8 @@ if ($showError) {
     </div>';
 }
 ?>
-
-
-<div class="container">
-    <h1 class="text-center mt-5">Login</h1>
+<body style="background-color: #f2edf3;">
+<!-- <div class="container mt-5">  
     <div class="row my-5 align-center">
         <div class="col-md-6">
             <div class="p-5">
@@ -67,6 +66,36 @@ if ($showError) {
             </div>
         </div>
     </div>
-</div>
-
+</div> -->
+<div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex justify-content-center auth">
+          <div class="row flex-grow">
+            <div class="col-lg-4 mx-auto">
+              <div class="auth-form-light text-left p-5">
+                <div class="brand-logo mb-2 text-center">
+                  <img src="../images/logo/final-logo-footer.png" class="bg-logo p-2">
+                </div>
+                <h4 style="font-family: cursive;" class="text-center">Hello! let's get started</h4>
+                <h6 class="font-weight-regular text-center" style="font-family: System-UI;">Log in to continue.</h6>
+                <form action="index.php" method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="text-white">Email address</label>
+                        <input type="email" name="username" id="username" class="form-control form-control-lg"placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="text-white">Password</label>
+                        <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-login text-white col-md-12">Login</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+</body>
 <?php include 'include/js-url.php'; ?>
