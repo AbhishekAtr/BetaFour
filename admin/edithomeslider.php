@@ -96,16 +96,22 @@ if ($statusMsg) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-6 col-sm-6">
                             <label for="input-rounded" class="control-label">Title<sup class="mandatory">*</sup> </label>
                             <div class="input-group mb-3">
                                 <input type="title" class="form-control" value="<?php echo $row['slider_title']; ?>" name="title" id="title" placeholder="Title" required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6">
+                        <div class="col-md-6 col-sm-6">
                             <label></label>
                             <div class="input-group mb-3 mt-2">
                                 <button type="submit" name="update" title="Submit" class="btn btn-warning btn-block mb-4">Update</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label></label>
+                            <div class="input-group mb-3 mt-2">
+                                <a type="submit" href="home-slider.php" class="btn btn-success btn-block mb-4">Back</a>
                             </div>
                         </div>
                     </div>

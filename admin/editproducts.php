@@ -100,7 +100,7 @@ if ($statusMsg) {
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" name="p_qty" placeholder="Enter category name" value="<?php echo $row['product_qty']; ?>">
+                        <input type="number" id="quantity" name="quantity" min="1" max="50" class="form-control" name="p_qty" placeholder="Enter quantity" value="<?php echo $row['product_qty']; ?>">
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -147,10 +147,17 @@ if ($statusMsg) {
                 <div class="col-md-12">
                     <textarea id="mytextarea" class="form-control" rows="5" placeholder="Description" spellcheck="false" name="p_desc"> </textarea>
                 </div>
-                <div class="col-md-12 mt-2">
+                <div class="col-md-6 mt-2">
                     <div class="form-group">
                         <div class="input-group  mt-4">
                             <button type="submit" name="p_insert" title="Submit" class="btn btn-info btn-block">Upload</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-2">
+                    <div class="form-group">
+                        <div class="input-group  mt-4">
+                            <a type="submit" href="products.php" class="btn btn-primary btn-block">Back</a>
                         </div>
                     </div>
                 </div>

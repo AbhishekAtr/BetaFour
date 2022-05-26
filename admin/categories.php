@@ -52,6 +52,11 @@ if (isset($_POST["c_insert"])) {
 ?>
 
 <?php
+if (isset($_POST['delete_btn_set'])) {
+    $del_id = $_POST['delete_id'];
+    $delete = mysqli_query($conn, "DELETE FROM `categories` WHERE `cat_id`= ' $del_id'");
+    $query = mysqli_query($conn, $delete);
+}
 include "include/css-url.php";
 include "partials/sidebar.php";
 ?>
@@ -155,11 +160,14 @@ if ($showError) {
                                                 <td><?php echo $row['cat_id']; ?></td>
 
                                                 <td><?php echo $row['cat_title']; ?></td>
-                                                <td><?php echo $row['cat_img']; ?></td>
+                                                <td>
+                                                    <img src="<?php echo $row['cat_img']; ?>" alt="" width="100" height="100">
+                                                </td>
                                                 <td><?php echo $row['cat_desc']; ?></td>
                                                 <td>
+                                                    <input type="hidden" class="delete_id_value" value="<?php echo $row['cat_id'] ?>">
                                                     <a href='editcategories.php?id=<?php echo $row['cat_id'] ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
-                                                        <a href='#' class="btn btn-danger deletebtn" type="button"><i class="fa fa-trash"></i></a>
+                                                        <a href="javascript:void(0)" class="btn btn-danger delete_data"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 
@@ -187,3 +195,41 @@ if ($showError) {
 <?php include "include/js-url.php"; ?>
 
 <?php include "include/deletemodal.php"; ?>
+
+<script>
+    $(document).ready(function() {
+        $('.delete_data').click(function(e) {
+            e.preventDefault();
+
+            var deleteid = $(this).closest("tr").find('.delete_id_value').val();
+            //   console.log(deleteid);
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            type: "POST",
+                            url: "categories.php",
+                            data: {
+                                "delete_btn_set": 1,
+                                "delete_id": deleteid,
+                            },
+                            success: function(response) {
+
+                                swal("Data Delete Successfully.!", {
+                                    icon: "success",
+                                }).then((result) => {
+                                    location.reload();
+                                });
+                            }
+                        });
+                    }
+                });
+        });
+    });
+</script>

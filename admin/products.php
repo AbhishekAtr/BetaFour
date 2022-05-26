@@ -46,7 +46,13 @@ if (isset($_POST["p_insert"])) {
 }
 ?>
 
-
+<?php
+if (isset($_POST['delete_btn_set'])) {
+    $id = $_POST['delete_id'];
+    $delete = mysqli_query($conn, $query = "DELETE FROM `products` WHERE product_id='$id'");
+    $query = mysqli_query($conn, $delete);
+}
+?>
 <?php include "include/css-url.php"; ?>
 
 <?php include "partials/sidebar.php"; ?>
@@ -88,7 +94,7 @@ if ($statusMsg) {
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" id="p_qty" name="p_qty" placeholder="Enter category name" required>
+                        <input type="number" id="quantity" name="quantity" min="1" max="50" class="form-control" id="p_qty" name="p_qty" placeholder="Enter quantity" required>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -190,8 +196,9 @@ if ($statusMsg) {
                                                 <td><?php echo $row['product_qty']; ?></td>
                                                 <td><?php echo $row['product_cat']; ?></td>
                                                 <td>
+                                                <input type="hidden" class="delete_id_value" value="<?php echo $row['product_id'] ?>">
                                                     <a href='editproducts.php?id=<?php echo $row['product_id']; ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
-                                                        <a href='#' type="button" class="btn btn-danger deletebtn"><i class="fa fa-trash"></i></a>
+                                                        <a href="javascript:void(0)" class="btn btn-danger delete_btn_ajax"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
 
@@ -220,3 +227,40 @@ if ($statusMsg) {
 
 <?php include "include/js-url.php"; ?>
 <?php include "include/deletemodal.php"; ?>
+<script>
+    $(document).ready(function() {
+        $('.delete_btn_ajax').click(function(e) {
+            e.preventDefault();
+
+            var deleteid = $(this).closest("tr").find('.delete_id_value').val();
+              console.log(deleteid);
+            swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            type: "POST",
+                            url: "products.php",
+                            data: {
+                                "delete_btn_set": 1,
+                                "delete_id": deleteid,
+                            },
+                            success: function(response) {
+
+                                swal("Data Delete Successfully.!", {
+                                    icon: "success",
+                                }).then((result) => {
+                                    location.reload();
+                                });
+                            }
+                        });
+                    }
+                });
+        });
+    });
+</script>

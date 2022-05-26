@@ -91,7 +91,7 @@ if ($statusMsg) {
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" name="n_qty" placeholder="Enter category name" value="<?php echo $row['qty']; ?>">
+                        <input type="number" id="quantity" name="quantity" min="1" max="50" class="form-control" name="n_qty" placeholder="Enter quantity" value="<?php echo $row['qty']; ?>">
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -140,10 +140,17 @@ if ($statusMsg) {
                 <div class="col-md-12 col-sm-6">
                     <textarea id="mytextarea" class="form-control" rows="5" placeholder="description" value="<?php echo $row['description']; ?>" spellcheck="false" name="n_desc"> </textarea>
                 </div>
-                <div class="col-md-12 col-sm-6">
+                <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <div class="input-group mt-4">
                             <button type="submit" name="n_insert" title="Submit" class="btn btn-success btn-block">Upload</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <div class="input-group mt-4">
+                            <a type="submit" href="new-release.php" class="btn btn-warning btn-block">Back</a>
                         </div>
                     </div>
                 </div>
