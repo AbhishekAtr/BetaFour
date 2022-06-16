@@ -157,7 +157,7 @@ if ($showError) {
                                         while ($row = mysqli_fetch_array($result)) { ?>
 
                                             <tr>
-                                                <td><?php echo $row['cat_id']; ?></td>
+                                                <td><?php echo $count; ?></td>
 
                                                 <td><?php echo $row['cat_title']; ?></td>
                                                 <td>
@@ -232,4 +232,9 @@ if ($showError) {
                 });
         });
     });
+</script>
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
 </script>

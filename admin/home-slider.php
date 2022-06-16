@@ -102,14 +102,13 @@ if ($statusMsg) {
                                         while ($row = mysqli_fetch_array($result)) { ?>
 
                                             <tr>
-                                                <td><?php echo $row['Id']; ?></td>
+                                                <td><?php echo $count; ?></td>
                                                 <td>
                                                     <img class="wd-120" src="<?php echo $row['image_url']; ?>" alt="" height="100" width="100">
                                                 </td>
                                                 <td>
                                                     <?php echo $row['slider_title']; ?>
                                                 </td>
-
                                                 <td>
                                                     <input type="hidden" class="delete_id_value" value="<?php echo $row['Id'] ?>">
                                                     <a href='edithomeslider.php?id=<?php echo $row['Id'] ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
@@ -180,4 +179,10 @@ if ($statusMsg) {
                 });
         });
     });
+</script>
+
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
 </script>

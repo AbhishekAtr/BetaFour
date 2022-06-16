@@ -29,6 +29,7 @@ if (isset($_POST["submit"])) {
 
             if ($insert) {
                 $status = true;
+                session_destroy();
             } else {
                 $statusMsg = "File upload failed, please try again.";
             }
@@ -46,4 +47,3 @@ if (isset($_POST["submit"])) {
 echo $statusMsg;
 
 ?>
-

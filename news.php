@@ -209,7 +209,7 @@
                                         <span class="mr-2 text-dark">Leave a comment</span> </a>
                                 </div>
                                 <p class="mb-0">
-                                    We had taken part at Mumbai Expo 2017, Our Stall no. was D-95. Above there are some of the pictures [â€¦]
+                                    We had taken part at Mumbai Expo 2017, Our Stall no. was D-95. Above there are some of the pictures [¡K]
                                 </p>
                             </div>
                         </div>
@@ -240,7 +240,7 @@
                                         <span class="mr-2 text-dark">Leave a comment</span> </a>
                                 </div>
                                 <p class="mb-0">
-                                    We had taken part at Delhi Expo 2017, Our Stall no. was D-95. Above there are some of the pictures [â€¦]
+                                    We had taken part at Delhi Expo 2017, Our Stall no. was D-95. Above there are some of the pictures [¡K]
                                 </p>
                             </div>
                         </div>
@@ -296,3 +296,8 @@
     </div>
   </div>
 </div>
+
+{/* WhatsApp icon */}
+      <a href="https://wa.me/2348100000000" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>

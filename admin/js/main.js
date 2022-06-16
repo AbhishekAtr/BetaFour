@@ -156,7 +156,6 @@ $(document).ready(function () {
 			}
 		});
 	});
-
 function changeImage(element) {
 
 	var main_prodcut_image = document.getElementById('main_product_image');
@@ -164,7 +163,6 @@ function changeImage(element) {
 
 
 }
-
 });
 
 
@@ -193,3 +191,5 @@ $(document).ready(function(){
         }]
     });
 });
+
+

@@ -82,10 +82,19 @@ if ($statusMsg) {
 <div class="content-body my-5 height-100 bg-light" id="main">
     <div class="container-fluid">
         <div class="row">
+            <div class="col-md-12 text-right mt-5">
+                <a href="home-slider.php">
+                <i class="fa fa-arrow-left text-success"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
             <div class="col-md-12">
                 <form class="mt-4" method="post" action="edithomeslider.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-6">
                             <div class="form-group">
                                 <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
                                 <div class="input-group mb-3">
@@ -96,24 +105,19 @@ if ($statusMsg) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-6">
                             <label for="input-rounded" class="control-label">Title<sup class="mandatory">*</sup> </label>
                             <div class="input-group mb-3">
                                 <input type="title" class="form-control" value="<?php echo $row['slider_title']; ?>" name="title" id="title" placeholder="Title" required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-1 col-sm-6">
                             <label></label>
                             <div class="input-group mb-3 mt-2">
                                 <button type="submit" name="update" title="Submit" class="btn btn-warning btn-block mb-4">Update</button>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <label></label>
-                            <div class="input-group mb-3 mt-2">
-                                <a type="submit" href="home-slider.php" class="btn btn-success btn-block mb-4">Back</a>
-                            </div>
-                        </div>
+                        
                     </div>
                 </form>
             </div>

@@ -324,3 +324,9 @@ label::after {
 {
     background: linear-gradient(80deg, #cc1919 , #e17272);
 }
+
+.text-right .fa
+{
+    font-size: 25px;
+}
+

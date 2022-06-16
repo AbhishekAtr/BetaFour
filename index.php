@@ -2,19 +2,19 @@
 
 <?php include 'include/header.php';
 
-$connect = mysqli_connect("localhost", "root", "", "beta-four");
-function make_query($connect)
+
+function make_query($conn)
 {
   $query = "SELECT * FROM `home-slider` ORDER BY Id ASC";
-  $result = mysqli_query($connect, $query);
+  $result = mysqli_query($conn, $query);
   return $result;
 }
 
-function make_slide_indicators($connect)
+function make_slide_indicators($conn)
 {
   $output = '';
   $count = 0;
-  $result = make_query($connect);
+  $result = make_query($conn);
   while ($row = mysqli_fetch_array($result)) {
     if ($count == 0) {
       $output .= '
@@ -37,16 +37,10 @@ function make_slide_indicators($connect)
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <?php echo make_slide_indicators($connect); ?>
-    <!-- <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
-
+    <?php echo make_slide_indicators($conn); ?>
   </ol>
   <div class="carousel-inner">
     <?php
-
-    $url = "http://localhost/betafour-static/admin/";
 
     $sql = "SELECT * FROM `home-slider`";
     $result = mysqli_query($conn, $sql);
@@ -59,13 +53,13 @@ function make_slide_indicators($connect)
       <?php
       if ($i == 1) {
       ?>
-        <div class="carousel-item active mt-5">
+        <div class="carousel-item active image-margin">
           <img class="d-block w-100" src="<?php echo $url . $row['image_url'] ?>" />
         </div>
       <?php
       } else {
       ?>
-        <div class="carousel-item mt-5">
+        <div class="carousel-item image-margin">
           <img class="d-block w-100" src="<?php echo $url . $row['image_url'] ?>" />
         </div>
 
@@ -300,15 +294,18 @@ function make_slide_indicators($connect)
 
         while ($row = mysqli_fetch_array($result)) { ?>
           <div class="col-md-4">
+            <a  href="products.php?cat_name=<?php echo $row['cat_title']; ?>">
             <div id="product-1" class="single-product">
+            
               <div class="part-1 hover-zoom text-center">
                 <img src="<?php echo $url . $row['cat_img']; ?>" alt="">
               </div>
               <div class="part-2">
                 <h3 class="product-title text-danger text-uppercase text-center"><?php echo $row['cat_title']; ?></h3>
-                <p class="text-center"><?php echo $row['cat_desc']; ?></p>
+                <p class="text-center text-dark"><?php echo $row['cat_desc']; ?></p>
               </div>
             </div>
+            </a>
           </div>
 
       <?php
@@ -596,3 +593,9 @@ function make_slide_indicators($connect)
 
 <!-- footer  -->
 <?php include 'include/footer.php'; ?>
+
+
+{/* WhatsApp icon */}
+      <a href="https://wa.me/2348100000000" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>

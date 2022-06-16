@@ -2,7 +2,6 @@
 
 <?php include 'include/header.php';
 include 'connection.php';
-$url = "http://localhost/betafour-static/admin/";
 $catname = "";
 if (isset($_GET['cat_name'])) {
   $catname = $_GET['cat_name'];
@@ -46,7 +45,7 @@ $result = mysqli_query($conn, $query);
 
                 <img src="<?php echo $url . $row['product_img']; ?>" class="w-100" />
                 <div class="mt-2 card-footer">
-                  <h6> <?php echo $row['product_title']; ?></h6>
+                  <h6 class="text-dark font-weight-bold"> <?php echo $row['product_title']; ?></h6>
                   <button class="btn btn-danger">Read More</button>
                 </div>
               </a>
@@ -66,3 +65,8 @@ $result = mysqli_query($conn, $query);
 
 <!-- footer  -->
 <?php include 'include/footer.php'; ?>
+
+{/* WhatsApp icon */}
+      <a href="https://wa.me/2348100000000" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>

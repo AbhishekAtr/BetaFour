@@ -16,7 +16,7 @@ $result = mysqli_query($conn, $query);
             <div class="col-lg-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#" class="text-white">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.php" class="text-white">Home</a></li>
                         <li class="breadcrumb-item active text-white" aria-current="page">New Release Products</li>
                     </ol>
                 </nav>
@@ -35,11 +35,11 @@ $result = mysqli_query($conn, $query);
       if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) { ?>
       <div class="col-lg-4 col-md-12 mb-4">
-        <div class="bg-image hover-zoom ripple shadow-1-strong rounded">
+        <div class="bg-image hover-zoom ripple card shadow-1-strong rounded">
             <a href="newproductdetails.php?pid=<?php echo $row['id']; ?>" class="text-center">
           <img src="<?php echo $url . $row['image']; ?>"
             class="w-100" />
-            <div class="mt-2">
+            <div class="mt-2 card-footer">
             <h6> <?php echo $row['title']; ?></h6>
             <button class="btn btn-danger">Read More</button>
             </div>
@@ -348,3 +348,8 @@ $result = mysqli_query($conn, $query);
 
 <!-- footer  -->
 <?php include 'include/footer.php'; ?>
+
+{/* WhatsApp icon */}
+      <a href="https://wa.me/2348100000000" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>

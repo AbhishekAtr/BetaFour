@@ -46,7 +46,7 @@
             </div>
             <div class="col-md-12 col-lg-6">
                 <div class="card border-0 shadow-sm text-white">
-                    <img src="images/products/portable-speaker-sys-thumbnail-300x169-1.jpg" alt="video" class="img-fluid rounded shadow-sm">
+                    <img src="images/brands/1.png" alt="video" class="img-fluid rounded shadow-sm">
                     <div class="card-img-overlay text-center">
                         <a href="https://www.youtube.com/watch?v=9No-FiEInLA" class="popup-youtube video-play-icon color-bip shadow"><span class="ti-control-play"></span> </a>
                     </div>
@@ -217,3 +217,8 @@
 
 <!-- footer  -->
 <?php include 'include/footer.php'; ?>
+
+{/* WhatsApp icon */}
+      <a href="https://wa.me/2348100000000" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>

@@ -5,10 +5,10 @@
     $password = "";
    
     $database = "beta-four";
+    $url = "http://localhost/betafour-static/admin/";
    
      // Create a connection 
-     $conn = mysqli_connect($servername, 
-         $username, $password, $database);
+     $conn = mysqli_connect($servername, $username, $password, $database);
    
     // Code written below is a step taken
     // to check that our Database is 
@@ -24,4 +24,5 @@
     // else {
         die("Error". mysqli_connect_error()); 
     } 
+
 ?>

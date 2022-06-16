@@ -1,5 +1,5 @@
 <?php
-// Include the database configuration file  
+//Include the database configuration file  
 include 'partials/db_connect.php';
 
 // If file upload form is submitted 
@@ -12,22 +12,30 @@ if (isset($_POST["p_insert"])) {
     $product_qty = $_POST['p_qty'];
     $product_desc = $_POST['p_desc'];
     $status = 'error';
-    if (!empty($_FILES["p_image"]["name"])) {
+    if (!empty($_FILES["p_image"]["name"]) || !empty($_FILES["f_image"]["name"])) {
+
         // Get file info 
         $fileName = basename($_FILES["p_image"]["name"]);
-        // $title = $_FILES['title']['name'];
-        $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+        $fileName1 = basename($_FILES["f_image"]["name"]);
 
+        // $title = $_FILES['title']['name'];
+        $fileType1 = pathinfo($fileName, PATHINFO_EXTENSION);
+        $fileType2 = pathinfo($fileName1, PATHINFO_EXTENSION);
         // Allow certain file formats 
         $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
-        if (in_array($fileType, $allowTypes)) {
+        if (in_array($fileType1, $allowTypes) || in_array($fileType2, $allowTypes)) {
             $image = $_FILES['p_image']['tmp_name'];
+            $image1 = $_FILES["f_image"]["tmp_name"];
 
-            $imgContent = addslashes(file_get_contents($image));
+            $imgContent1 = addslashes(file_get_contents($image));
+            $imgContent2 = addslashes(file_get_contents($image1));
+
             $destinationfile = 'upload/' . $fileName;
-            if (move_uploaded_file($image, $destinationfile)) {
+            $destinationfile1 = 'upload/' . $fileName1;
+
+            if (move_uploaded_file($image, $destinationfile) || move_uploaded_file($image1, $destinationfile1)) {
                 // Insert image content into database
-                $insert = "INSERT INTO `products`( `product_cat`, `product_title`, `product_qty`, `product_desc`, `product_img`) VALUES ('$product_cat','$product_title','$product_qty','$product_desc','$destinationfile')";
+                $insert = "INSERT INTO `products`( `product_cat`, `product_title`, `product_qty`, `product_desc`, `product_img`, `other_img`) VALUES ('$product_cat','$product_title','$product_qty','$product_desc','$destinationfile', '$destinationfile1')";
                 $smt = $conn->prepare($insert);
                 $smt->execute();
                 if ($insert) {
@@ -94,7 +102,7 @@ if ($statusMsg) {
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
-                        <input type="number" id="quantity" name="quantity" min="1" max="50" class="form-control" id="p_qty" name="p_qty" placeholder="Enter quantity" required>
+                        <input type="number" id="quantity" min="1" max="50" class="form-control"  name="p_qty" placeholder="Enter quantity" required>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -108,6 +116,21 @@ if ($statusMsg) {
                         </div>
                     </div>
                 </div>
+
+               <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="image" class="control-label">Front Image <sup class="mandatory">*</sup></label>
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="f_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Category<sup class="mandatory">*</sup> </label>
@@ -164,6 +187,7 @@ if ($statusMsg) {
                                     <tr>
                                         <th>S.no</th>
                                         <th>Image</th>
+                                        <!-- <th>Other Image</th> -->
                                         <th>Title</th>
                                         <th>Quantity</th>
                                         <th>Category</th>
@@ -188,15 +212,18 @@ if ($statusMsg) {
                                         while ($row = mysqli_fetch_array($result)) { ?>
 
                                             <tr>
-                                                <td><?php echo $row['product_id']; ?></td>
+                                                <td><?php echo $count; ?></td>
                                                 <td>
                                                     <img class="wd-120" src="<?php echo $row['product_img']; ?>" alt="" height="100" width="100">
                                                 </td>
+                                                <!-- <td>
+                                                    <img class="wd-120" src="<?php echo $row['other_img']; ?>" alt="" height="100" width="100">
+                                                </td> -->
                                                 <td><?php echo $row['product_title']; ?></td>
                                                 <td><?php echo $row['product_qty']; ?></td>
                                                 <td><?php echo $row['product_cat']; ?></td>
                                                 <td>
-                                                <input type="hidden" class="delete_id_value" value="<?php echo $row['product_id'] ?>">
+                                                    <input type="hidden" class="delete_id_value" value="<?php echo $row['product_id'] ?>">
                                                     <a href='editproducts.php?id=<?php echo $row['product_id']; ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
                                                         <a href="javascript:void(0)" class="btn btn-danger delete_btn_ajax"><i class="fa fa-trash"></i></a>
                                                 </td>
@@ -233,7 +260,7 @@ if ($statusMsg) {
             e.preventDefault();
 
             var deleteid = $(this).closest("tr").find('.delete_id_value').val();
-              console.log(deleteid);
+            console.log(deleteid);
             swal({
                     title: "Are you sure?",
                     text: "Once deleted, you will not be able to recover this imaginary file!",
@@ -263,4 +290,9 @@ if ($statusMsg) {
                 });
         });
     });
+</script>
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
 </script>

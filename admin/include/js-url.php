@@ -6,6 +6,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script type="text/javascript" src="scripts/ajax-script.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="tex/javascript" src="./js/main.js"></script>
 
 </script>
@@ -37,8 +38,8 @@
   });
 </script>
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script type="text/javascript" src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+</script>
 <script type="text/javascript">
   tinymce.init({
     selector: 'textarea',
@@ -67,28 +68,28 @@
   })
 </script>
 
-<!-- <script>
-  $(document).ready(function() {
+<!--<script>-->
+<!--  $(document).ready(function() {-->
 
-    $('.deletebtn').on('click', function() {
+<!--    $('.deletebtn').on('click', function() {-->
 
-      $('#deletemodal').modal('show');
+<!--      $('#deletemodal').modal('show');-->
 
-      $tr = $(this).closest('tr');
+<!--      $tr = $(this).closest('tr');-->
 
-      var data = $tr.children("td").map(function() {
-        return $(this).text();
-      }).get();
+<!--      var data = $tr.children("td").map(function() {-->
+<!--        return $(this).text();-->
+<!--      }).get();-->
 
-      console.log(data);
+<!--      console.log(data);-->
 
-      $('#delete_id').val(data[0]);
+<!--      $('#delete_id').val(data[0]);-->
 
-    });
-  });
+<!--    });-->
+<!--  });-->
 
  
-</script> -->
+<!--</script>-->
 
 <script>
     tinymce.init({
@@ -100,6 +101,7 @@
       tinycomments_author: 'Author name',
     });
   </script>
+
 </body>
 
 </html>

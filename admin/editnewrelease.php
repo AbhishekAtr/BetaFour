@@ -75,6 +75,15 @@ if ($statusMsg) {
 ?>
 <div class="content-body my-5 height-100 bg-light" id="main">
     <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-right mt-5">
+                <a href="new-release.php">
+                <i class="fa fa-arrow-left text-primary"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
         <?php
         $id = $_GET['id'];
         $query = mysqli_query($conn, "SELECT * from `new-release` where `id`='$id'");
@@ -140,17 +149,10 @@ if ($statusMsg) {
                 <div class="col-md-12 col-sm-6">
                     <textarea id="mytextarea" class="form-control" rows="5" placeholder="description" value="<?php echo $row['description']; ?>" spellcheck="false" name="n_desc"> </textarea>
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-12 col-sm-6">
                     <div class="form-group">
                         <div class="input-group mt-4">
                             <button type="submit" name="n_insert" title="Submit" class="btn btn-success btn-block">Upload</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="form-group">
-                        <div class="input-group mt-4">
-                            <a type="submit" href="new-release.php" class="btn btn-warning btn-block">Back</a>
                         </div>
                     </div>
                 </div>

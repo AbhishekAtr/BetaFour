@@ -53,9 +53,9 @@ if (isset($_POST['delete_btn_set'])) {
 }
 ?>
 
-<?php include "include/css-url.php"; ?>
-
-<?php include "partials/sidebar.php"; ?>
+<?php include "include/css-url.php"; 
+include "partials/sidebar.php"; 
+?>
 
 <?php
 
@@ -198,7 +198,7 @@ if ($statusMsg) {
                                         while ($row = mysqli_fetch_array($result)) { ?>
 
                                             <tr>
-                                                <td><?php echo $row['id']; ?></td>
+                                                <td><?php echo $count; ?></td>
                                                 <td>
                                                     <img class="wd-120" src="<?php echo $row['image']; ?>" alt="" height="100" width="100">
                                                 </td>
@@ -274,4 +274,9 @@ if ($statusMsg) {
                 });
         });
     });
+</script>
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
 </script>

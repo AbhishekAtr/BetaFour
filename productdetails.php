@@ -1,7 +1,6 @@
 <!-- Header -->
 <?php include 'include/header.php';
 include 'connection.php';
-$url = "http://localhost/betafour-static/admin/";
 $id = "";
 if (isset($_GET['pid'])) {
     $id = $_GET['pid'];
@@ -41,7 +40,6 @@ $result = mysqli_query($conn, $query);
     <div class="container">
         <?php
         include 'connection.php';
-        $url = "http://localhost/betafour-static/admin/";
         $id = "";
         if (isset($_GET['pid'])) {
             $id = $_GET['pid'];
@@ -58,10 +56,8 @@ $result = mysqli_query($conn, $query);
                                 <div class="main_image"><img src="<?php echo $url . $row['product_img']; ?>" id="main_product_image" width="350" /></div>
                                 <div class="thumbnail_images">
                                     <ul id="thumbnail">
-                                        <li><img onclick="changeImage(this)" src="images/products/18EM1200-F-B-B4.jpg" width="70" /></li>
-                                        <li><img onclick="changeImage(this)" src="images/products/18EM1200-F-B-B4.jpg" width="70" /></li>
-                                        <li><img onclick="changeImage(this)" src="images/products/18EM1200-F-B-B4.jpg" width="70" /></li>
-                                        <li><img onclick="changeImage(this)" src="images/products/18EM1200-F-B-B4.jpg" width="70" /></li>
+                                        <li><img onclick="changeImage(this)" src="<?php echo $url . $row['product_img']; ?>" width="70" /></li>
+                                        <li><img onclick="changeImage(this)" src="<?php echo $url . $row['other_img']; ?>" width="70" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -162,3 +158,8 @@ $result = mysqli_query($conn, $query);
 
     <!-- footer  -->
     <?php include 'include/footer.php'; ?>
+    
+    {/* WhatsApp icon */}
+      <a href="https://wa.me/2348100000000" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>

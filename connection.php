@@ -1,10 +1,18 @@
 <?php
    
+    // $servername = "localhost"; 
+    // $username = "aptimyst_betafour"; 
+    // $password = "beta_four";
+   
+    // $database = "aptimyst_beta-four";
+    // $url = "http://test.aptimyst.com/betafour/admin/";
+
     $servername = "localhost"; 
     $username = "root"; 
     $password = "";
    
     $database = "beta-four";
+    $url = "http://localhost/betafour-static/admin/";
    
      // Create a connection 
      $conn = mysqli_connect($servername, $username, $password, $database);
