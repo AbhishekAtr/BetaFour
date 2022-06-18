@@ -119,7 +119,7 @@ if ($statusMsg) {
 
                <div class="col-md-3 col-sm-6">
                     <div class="form-group">
-                        <label for="image" class="control-label">Front Image <sup class="mandatory">*</sup></label>
+                        <label for="image" class="control-label">Other Image <sup class="mandatory">*</sup></label>
                         <div class="input-group mb-3">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" name="f_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>

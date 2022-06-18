@@ -5,7 +5,7 @@
     $password = "";
    
     $database = "beta-four";
-    $url = "http://localhost/betafour-static/admin/";
+    $url = "https://localhost/betafour-static/admin/";
    
      // Create a connection 
      $conn = mysqli_connect($servername, $username, $password, $database);

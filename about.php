@@ -30,8 +30,12 @@
             <div class="col-md-12 col-lg-5">
                 <div class="video-promo-content mb-md-4 mb-lg-0">
                     <h2>About <span class="text-danger">B</span>eta Four</h2>
-                    <p>Interactively develop timely niche markets before extensive imperatives. Professionally
-                        repurpose interoperable growth strategies before effective core competencies.</p>
+                    <p>Devotion to provide the perfect sound is embedded in our core values of our brand<br>
+             BETA FOUR from the past 20 years.<br>
+           Our expertise in manufacturing high end sound equipment such as Precision Transducers, Power Amplifiers, Microphones, Sound colums, Mixers is the result of our hardworking team.
+            At [B4] we combine the handmade elegancy with the accuracy of robotic assembly with precise repeatability.<br>
+            Our differenciator is the precision and elegancy of our products in comparison to other loudspeakers made with quantity and cost as their driving factor.
+            The focus of our brand is to innovate with the market requirements and provide the top notch sound reinforcement.</p>
                     <!-- <ul class="list-unstyled tech-feature-list">
                                 <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Cost</strong>
                                     Accounting Fundamentals
@@ -46,10 +50,7 @@
             </div>
             <div class="col-md-12 col-lg-6">
                 <div class="card border-0 shadow-sm text-white">
-                    <img src="images/brands/1.png" alt="video" class="img-fluid rounded shadow-sm">
-                    <div class="card-img-overlay text-center">
-                        <a href="https://www.youtube.com/watch?v=9No-FiEInLA" class="popup-youtube video-play-icon color-bip shadow"><span class="ti-control-play"></span> </a>
-                    </div>
+                    <img src="images/brands/1.png" alt="video" class="img-fluid rounded shadow-sm w-50">
                 </div>
             </div>
         </div>
@@ -219,6 +220,6 @@
 <?php include 'include/footer.php'; ?>
 
 {/* WhatsApp icon */}
-      <a href="https://wa.me/2348100000000" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+      <a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
         <i class="fa fa-whatsapp whatsapp-icon"></i>
       </a>

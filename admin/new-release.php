@@ -12,22 +12,31 @@ if (isset($_POST["n_insert"])) {
     $product_qty = $_POST['n_qty'];
     $product_desc = $_POST['n_desc'];
     $status = 'error';
-    if (!empty($_FILES["n_image"]["name"])) {
+    if (!empty($_FILES["n_image"]["name"])|| !empty($_FILES["f_image"]["name"])) {
         // Get file info 
         $fileName = basename($_FILES["n_image"]["name"]);
+        $fileName1 = basename($_FILES["f_image"]["name"]);
         // $title = $_FILES['title']['name'];
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+        $fileType1 = pathinfo($fileName1, PATHINFO_EXTENSION);
 
         // Allow certain file formats 
         $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
-        if (in_array($fileType, $allowTypes)) {
+        if (in_array($fileType, $allowTypes)|| in_array($fileType1, $allowTypes)) {
             $image = $_FILES['n_image']['tmp_name'];
+            $image1 = $_FILES["f_image"]["tmp_name"];
 
             $imgContent = addslashes(file_get_contents($image));
+            $imgContent1 = addslashes(file_get_contents($image1));
+            
             $destinationfile = 'upload/' . $fileName;
-            if (move_uploaded_file($image, $destinationfile)) {
+            $destinationfile1 = 'upload/' . $fileName1;
+            
+            if (move_uploaded_file($image, $destinationfile) || move_uploaded_file($image1, $destinationfile1)) {
+                
                 // Insert image content into database
-                $insert = "INSERT INTO `new-release`( `image`, `title`, `description`, `qty`, `category`) VALUES ('$destinationfile','$product_title','$product_desc','$product_qty','$product_cat')";
+                
+                $insert = "INSERT INTO `new-release`( `image`, `other_img`, `title`, `description`, `qty`, `category`) VALUES ('$destinationfile','$destinationfile1','$product_title','$product_desc','$product_qty','$product_cat')";
                 $smt=$conn->prepare($insert);
                 $smt->execute();
                 if ($insert) {
@@ -100,7 +109,7 @@ if ($statusMsg) {
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
-                        <input type="number" id="quantity" name="quantity" min="1" max="50" class="form-control" id="n_qty" name="n_qty" placeholder="Enter quantity" required>
+                        <input type="number" min="1" max="50" class="form-control" id="n_qty" name="n_qty" placeholder="Enter quantity" required>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -109,6 +118,17 @@ if ($statusMsg) {
                         <div class="input-group mb-3">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="n_image" name="n_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="image" class="control-label">Other Image <sup class="mandatory">*</sup></label>
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="f_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
                                 <label class="custom-file-label">Choose file</label>
                             </div>
                         </div>

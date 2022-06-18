@@ -1,12 +1,5 @@
 <?php
    
-    // $servername = "localhost"; 
-    // $username = "aptimyst_betafour"; 
-    // $password = "beta_four";
-   
-    // $database = "aptimyst_beta-four";
-    // $url = "http://test.aptimyst.com/betafour/admin/";
-
     $servername = "localhost"; 
     $username = "root"; 
     $password = "";
