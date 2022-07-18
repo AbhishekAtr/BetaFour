@@ -11,7 +11,7 @@ $result = mysqli_query($conn, $query);
 <!-- Breadcrums start -->
 
 <section class="news-banner">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <nav aria-label="breadcrumb">
@@ -50,7 +50,7 @@ $result = mysqli_query($conn, $query);
           $count++;
         }
       } else {
-        echo '0 results';
+        echo 'No image Found';
       }
       ?>
   </div>
@@ -349,7 +349,7 @@ $result = mysqli_query($conn, $query);
 <!-- footer  -->
 <?php include 'include/footer.php'; ?>
 
-{/* WhatsApp icon */}
+
       <a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
         <i class="fa fa-whatsapp whatsapp-icon"></i>
       </a>

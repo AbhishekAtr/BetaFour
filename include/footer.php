@@ -64,8 +64,8 @@
                         <p><img loading="lazy" class="alignnone size-full wp-image-928" src="./images/logo/final-logo-footer.png" alt="" width="246" height="60"></p>
                         <div class="textwidget">
                             <p> F-32, Okhla Industrial Area, Phase-I, New Delhi-110022, India<br>
-                            <p><i class="fa fa-envelope" aria-hidden="true"></i> info@www.betafour.in</p>
-                            <p><i class="fa fa-phone" aria-hidden="true"></i> 011-42575425
+                            <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@www.betafour.in" class="footer-a text-white">info@www.betafour.in</a></p>
+                            <p><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:011-42575425" class="footer-a text-white"> 011-42575425 </a>
                             </p>
                             <p>Follow Us:</p>
                             <p><a href="https://www.instagram.com/" class="text-white" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -83,27 +83,28 @@
                     <h3 class="widget-title text-uppercase">Product Catgories</h3>
                     <div class="menu-product-categories-container">
                         <ul id="menu-product-categories" class="menu">
-                            <li id="menu-item-912" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-912"><a href="#">Amplifiers</a></li>
-                            <li id="menu-item-913" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-913"><a href="#">Columns</a></li>
-                            <li id="menu-item-914" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-914"><a href="#">Digital Echoes</a></li>
-                            <li id="menu-item-915" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-915"><a href="#">HF Drivers/Driver Unit</a></li>
-                            <li id="menu-item-916" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-916"><a href="#">Line Array</a></li>
-                        </ul>
-                    </div>
-                </section>
-            </div>
+                             <?php
+                             include 'connection.php';
+                $sql = "SELECT * FROM `categories`";
+               
+                if (mysqli_query($conn, $sql)) {
+                  echo "";
+                } else {
+                  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
+                $count = 1;
+                $result = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($result) > 0) {
 
-            <div class=" footer-block col-lg-2 col-md-2">
-
-                <section id="nav_menu-3" class="widget widget_nav_menu">
-                    <h3 class="widget-title text-uppercase">Product Categories</h3>
-                    <div class="menu-product-categories-2-container">
-                        <ul id="menu-product-categories-2" class="menu">
-                            <li id="menu-item-922" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-922"><a href="#">Speakers</a></li>
-                            <li id="menu-item-923" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-923"><a href="#">New Release</a></li>
-                            <li id="menu-item-924" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-924"><a href="#">Portable Speaker Systems</a></li>
-                            <li id="menu-item-925" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-925"><a href="#">Digital Echoes</a></li>
-                            <li id="menu-item-926" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-926"><a href="#">Mixing Consoles</a></li>
+                  while ($row = mysqli_fetch_array($result)) { ?>
+                            <li id="menu-item-912" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-912"><a href="products.php?cat_name=<?php echo $row['cat_title']; ?>"><?php echo $row['cat_title']; ?></a></li>
+                            <?php
+                    $count++;
+                  }
+                } else {
+                  echo '0 results';
+                }
+                ?>
                         </ul>
                     </div>
                 </section>
@@ -114,17 +115,17 @@
                 <section id="text-3" class="widget widget_text">
                     <h3 class="widget-title text-uppercase">Write Us!</h3>
                     <div class="form">
-                        <form>
+                        <form method="post" id="enquiry">
                             <div class="form-group">
-                                <input type="text" id="form3Example1" class="form-control" placeholder="Name" />
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Name" />
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Message"></textarea>
+                                <textarea class="form-control" name="message" id="message" rows="3" placeholder="Message"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-danger btn1 text-uppercase">Subscribe</button>
+                            <button class="btn btn-danger btn1 text-uppercase" onclick="submitform('enquiry')">Subscribe</button>
                         </form>
                     </div>
                 </section>
@@ -151,6 +152,7 @@
 <!-- JS-url -->
 <?php include 'include/js-url.php'; ?>
 
+<div id="snackbar">Form Submitted Succefully</div>
 
 
 

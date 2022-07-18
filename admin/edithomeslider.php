@@ -1,6 +1,6 @@
 <?php
 // Include the database configuration file  
-include 'partials/db_connect.php';
+include 'include/db_connect.php';
 
 // If file upload form is submitted 
 $status = false;
@@ -55,8 +55,8 @@ $row = mysqli_fetch_array($query);
 
 
 
-<?php include "include/css-url.php"; ?>
-<?php include "partials/sidebar.php"; ?>
+<?php include 'include/css-url.php';
+include 'include/header.php'; ?>
 <?php
 
 if ($status) {
@@ -79,49 +79,37 @@ if ($statusMsg) {
     </div>';
 }
 ?>
-<div class="content-body my-5 height-100 bg-light" id="main">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 text-right mt-5">
-                <a href="home-slider.php">
-                <i class="fa fa-arrow-left text-success"></i>
-                </a>
+<section class="main-section" id="main">
+    <div class="container">
+        <div class="adminForm card m-3 p-5">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <a href="home-slider.php">
+                        <i class="fa fa-arrow-left text-success"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <form class="mt-4" method="post" action="edithomeslider.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-6">
-                            <div class="form-group">
-                                <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="e_image" name="e_image" file-input="packageFile" accept=".jpg, .jpeg, .png">
-                                        <label class="custom-file-label">Choose file</label>
-                                    </div>
-                                </div>
-                            </div>
+            <form class="mt-4" method="post" action="edithomeslider.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" id="e_image" name="e_image" file-input="packageFile" accept=".jpg, .jpeg, .png" required>
+                            <label class="input-group-text" for="inputGroupFile02">Upload</label>
                         </div>
-                        <div class="col-md-5 col-sm-6">
-                            <label for="input-rounded" class="control-label">Title<sup class="mandatory">*</sup> </label>
-                            <div class="input-group mb-3">
-                                <input type="title" class="form-control" value="<?php echo $row['slider_title']; ?>" name="title" id="title" placeholder="Title" required aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
-                            </div>
-                        </div>
-                        <div class="col-md-1 col-sm-6">
-                            <label></label>
-                            <div class="input-group mb-3 mt-2">
-                                <button type="submit" name="update" title="Submit" class="btn btn-warning btn-block mb-4">Update</button>
-                            </div>
-                        </div>
-                        
                     </div>
-                </form>
-            </div>
+                    <div class="col-lg-6 col-md-6">
+                        <input type="Title" class="form-control" name="title" id="title" placeholder="Title" value="<?php echo $row['slider_title']; ?>" required>
+                    </div>
+                    <div class="col-lg-1">
+                        <button type="submit" name="update" title="Submit" class="btn btn-success btn-block">Update</button>
+                    </div>
+                    <div class="col-lg-1">
+                        <a href="home-slider.php" class="btn btn-danger">Cancel</a>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-</div>
-<?php include "include/js-url.php"; ?>
+</section>
+<?php include 'include/footer.php';
+include 'include/js-url.php'; ?>

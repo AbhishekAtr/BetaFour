@@ -2,7 +2,7 @@
 
 
 <section class="contact-banner">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <nav aria-label="breadcrumb">
@@ -79,7 +79,7 @@
                                     Lets Talk
                                 </span>
                                 <span class="txt3">
-                                    011-42575425
+                                   <a href="tel:011-42575425" class="txt3">011-42575425</a>
                                 </span>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                                     General Support
                                 </span>
                                 <span class="txt3">
-                                    info@www.betafour.in
+                                   <a href="mailto:info@www.betafour.in" class="txt3">info@www.betafour.in</a>
                                 </span>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
 
 <?php include 'include/footer.php'; ?>
 
-{/* WhatsApp icon */}
+
       <a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
         <i class="fa fa-whatsapp whatsapp-icon"></i>
       </a>

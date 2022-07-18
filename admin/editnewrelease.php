@@ -1,6 +1,6 @@
 <?php
 // Include the database configuration file  
-include 'partials/db_connect.php';
+include 'include/db_connect.php';
 
 // If file upload form is submitted 
 $status = false;
@@ -47,9 +47,8 @@ if (isset($_POST["n_insert"])) {
 }
 ?>
 
-<?php include "include/css-url.php"; ?>
-
-<?php include "partials/sidebar.php"; ?>
+<?php include 'include/css-url.php';
+include 'include/header.php'; ?>
 
 <?php
 
@@ -73,92 +72,98 @@ if ($statusMsg) {
     </div>';
 }
 ?>
-<div class="content-body my-5 height-100 bg-light" id="main">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 text-right mt-5">
-                <a href="new-release.php">
-                <i class="fa fa-arrow-left text-primary"></i>
-                </a>
+<div class="main-section" id="main">
+    <div class="container">
+        <div class="adminForm card m-3 p-5">
+            <div class="row">
+                <div class="col-md-12 text-right mt-5">
+                    <a href="new-release.php">
+                        <i class="fa fa-arrow-left text-primary"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <?php
-        $id = $_GET['id'];
-        $query = mysqli_query($conn, "SELECT * from `new-release` where `id`='$id'");
-        $row = mysqli_fetch_array($query);
-        ?>
-        <form class="mt-5" method="post" action="editnewrelease.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
-            <div class="row page-titles mx-0">
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="productname" class="control-label">Product Name <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" name="n_name" placeholder="Enter category name" value="<?php echo $row['title']; ?>">
+            <?php
+            $id = $_GET['id'];
+            $query = mysqli_query($conn, "SELECT * from `new-release` where `id`='$id'");
+            $row = mysqli_fetch_array($query);
+            ?>
+            <form class="mt-5" method="post" action="editnewrelease.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
+
+                <div class="row page-titles mx-0">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <label for="productname" class="control-label">Product Name <sup class="text-danger bold">*</sup></label>
+                            <input type="text" class="form-control" id="n_name" name="n_name" placeholder="Enter category name" value="<?php echo $row['title']; ?>" required>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
-                        <input type="number" id="quantity" name="quantity" min="1" max="50" class="form-control" name="n_qty" placeholder="Enter quantity" value="<?php echo $row['qty']; ?>">
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="image" class="control-label">Product Image <sup class="mandatory">*</sup></label>
-                        <div class="input-group mb-3">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="n_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif">
-                                <label class="custom-file-label">Choose file</label>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <label for="image" class="control-label">Product Image <sup class="text-danger bold">*</sup></label>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" id="n_image" name="n_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="category" class="control-label">Category<sup class="mandatory">*</sup> </label>
-                        <select class="form-control " name="n_cat">
-                            <option selected>Select Category</option>
-                            <?php
 
-                            include 'partials/db_connect.php';
-                            $sql = "SELECT * from `categories`";
-                            if (mysqli_query($conn, $sql)) {
-                                echo "";
-                            } else {
-                                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                            }
-                            $count = 1;
-                            $result = mysqli_query($conn, $sql);
-                            if (mysqli_num_rows($result) > 0) {
-
-                                while ($row = mysqli_fetch_array($result)) { ?>
-
-
-                                    <option value="<?php echo $row['cat_title']; ?>"><?php echo $row['cat_title']; ?> </option>
-                            <?php
-                                    $count++;
-                                }
-                            } else {
-                                echo '0 results';
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-6">
-                    <textarea id="mytextarea" class="form-control" rows="5" placeholder="description" value="<?php echo $row['description']; ?>" spellcheck="false" name="n_desc"> </textarea>
-                </div>
-                <div class="col-md-12 col-sm-6">
-                    <div class="form-group">
-                        <div class="input-group mt-4">
-                            <button type="submit" name="n_insert" title="Submit" class="btn btn-success btn-block">Upload</button>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <label for="image" class="control-label">Other Image <sup class="text-danger bold">*</sup></label>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" name="f_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
+                            </div>
                         </div>
                     </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <label for="category" class="control-label">Category<sup class="text-danger bold">*</sup> </label>
+                            <select class="form-select" name="n_cat" id="n_cat" required>
+                                <option selected><?php echo $row['category']; ?></option>
+                                <?php
+                                $sql = "SELECT * from `categories`";
+                                if (mysqli_query($conn, $sql)) {
+                                    echo "";
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                }
+                                $count = 1;
+                                $result = mysqli_query($conn, $sql);
+                                if (mysqli_num_rows($result) > 0) {
+
+                                    while ($row = mysqli_fetch_array($result)) { ?>
+
+
+                                        <option value="<?php echo $row['cat_title']; ?>"><?php echo $row['cat_title']; ?> </option>
+                                <?php
+                                        $count++;
+                                    }
+                                } else {
+                                    echo '0 results';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12 mt-4">
+                        <?php
+                        $id = $_GET['id'];
+                        $query = mysqli_query($conn, "SELECT * from `new-release` where id='$id'");
+                        $row = mysqli_fetch_array($query);
+                        ?>
+                        <div class="form-group">
+                            <textarea id="editor" name="n_desc"><?php echo $row['description']; ?></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 mt-3">
+                        <button type="submit" name="n_insert" title="Submit" class="btn btn-success btn-block">Upload</button>
+                    </div>
+                    <div class="col-lg-1 mt-3">
+                        <a href="new-release.php" type="button" class="btn btn-danger">Cancel</a>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 
-<?php include "include/js-url.php"; ?>
+<?php include 'include/footer.php';
+include 'include/js-url.php'; ?>

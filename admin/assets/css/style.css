@@ -1,0 +1,483 @@
+body {
+    background-color: #dad8d8;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width:600px) {
+    .logo-text {
+        display: none !important;
+    }
+    .close-section {
+        margin-left: 0px !important;
+    }
+    .main-section {
+        margin-left: 0px !important;
+    }
+    .logo {
+        display: none;
+    }
+    .nav-control {
+        right: 170px !important;
+        margin-top: 10px;
+    }
+    #profile {
+        position: relative;
+        margin-left: 56% !important;
+    }
+    #dropMenu {
+        margin-top: 64px !important;
+        margin-left: -105px !important;
+        padding: 15px 9px !important;
+        min-width: 8.5rem !important;
+    }
+    #search {
+        display: none !important;
+    }
+    #span-img {
+        right: 0 !important;
+        margin-top: 10px !important;
+    }
+    #userName {
+        display: none;
+    }
+    .header {
+        padding-bottom: 40px !important;
+    }
+}
+
+@media screen and (min-width:700px) and (max-width:1024px) {
+    #profile {
+        position: relative;
+        margin-left: 33% !important;
+    }
+}
+
+.adminForm {
+    background-color: white;
+    border-radius: 21px;
+    box-shadow: 2px black solid;
+    /* box-shadow: 7 3px 15px 3px rgb(0 0 0 / 13%), 0 9px 21px -1px rgb(8 7 6 / 5%);
+    box-shadow: 0 4px 7px -1px rgb(0 0 0 / 11%), 0 2px 4px -1px rgb(0 0 0 / 7%); */
+    box-shadow: 0 0 8px 2px rgb(0 0 0 / 5%);
+}
+
+.adminTable {
+    /* margin: 20px 45px 0 33px; */
+    border-radius: 20px;
+    /* padding: 8px 64px 8px; */
+    background-color: white;
+    box-shadow: 0 0 8px 2px rgb(0 0 0 / 5%);
+}
+
+.wd-120 {
+    vertical-align: middle;
+    height: 46px;
+    width: 69px;
+}
+
+#adminEdit {
+    padding: 12px;
+    background-color: #6c5ce7;
+    color: white;
+    margin-right: 4px;
+    font-weight: 32px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#adminDelete {
+    padding: 12px;
+    background-color: #d63031;
+    color: white;
+    font-weight: 32px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#sidemenu {
+    position: fixed !important;
+}
+
+#profile {
+    position: relative;
+    margin-left: 68%;
+}
+
+table a {
+    margin-right: 2px !important;
+}
+
+#description {
+    width: 560px !important;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#userName {
+    display: block;
+}
+
+.hamburger .line:nth-child(3) {
+    width: 22px;
+}
+
+.hamburger .line:nth-child(1) {
+    width: 22px;
+}
+
+.main-section {
+    margin-left: 268px;
+    margin-top: 85px !important;
+}
+
+#dropLi {
+    margin-left: 15px;
+}
+
+#dropLi:hover {
+    transition: all .5s;
+    margin-left: 23px;
+}
+
+#dropMenu {
+    margin-top: 44px;
+    margin-left: -52px;
+    padding: 15px 9px;
+    min-width: 9.5rem;
+    border-width: 0;
+    box-shadow: 0 0 37px rgb(8 21 66 / 5%);
+    border-radius: 0.35rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo-text {
+    margin-left: 70px;
+    font-size: 18px;
+    padding: 4px;
+}
+
+.text-style {
+    text-decoration: none;
+}
+
+.side-bar>li>a .nav-text {
+    transition: all 0.5s;
+    display: inline-block;
+}
+
+.nav-text:hover {
+    margin-left: 35px;
+}
+
+#side-style {
+    padding: 10px 0 10px;
+    /* margin-left: 13px; */
+}
+
+
+/* .dropdown-item:hover{
+background-color: none !important;
+} */
+
+.logo {
+    width: 50%;
+    margin-left: 20px;
+}
+
+.header {
+    position: fixed !important;
+    top: 0;
+    padding-bottom: 15px;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    padding: 0rem;
+    z-index: 4;
+    padding-left: 20.5rem;
+    transition: all .2s ease;
+    background: #fff;
+    box-shadow: 0 0 8px 2px rgb(0 0 0 / 5%);
+}
+
+#span-img {
+    height: 39px;
+    border-radius: 10px;
+    padding-right: 5px;
+    position: absolute;
+    margin-top: -12px;
+    /* right: 30px; */
+}
+
+.side-bar ul li {
+    text-decoration: none !important;
+    list-style: none;
+}
+
+.side-bar a .nav-text {
+    -webkit-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+    display: inline-block;
+}
+
+#search {
+    padding: 8px 21px 8px;
+    background-color: #f7f7f7;
+    border: none;
+    border-radius: 7px;
+}
+
+.nav-label.first {
+    border: 0px;
+    margin: 0px;
+}
+
+a .nav-text {
+    -webkit-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+    display: inline-block;
+    margin-left: 14px;
+}
+
+.nav-label {
+    margin: 10px 25px 0;
+    padding: 1.5625rem 0 10px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05rem;
+    /* border-top: 1px solid #eaeaea; */
+    color: #999999;
+}
+
+.side-bar {
+    width: 17.5rem;
+    padding-bottom: 0;
+    height: 100%;
+    /* position: absolute; */
+    position: fixed;
+    top: 2.5rem;
+    padding-top: 0;
+    z-index: 4;
+    background-color: #fff;
+    z-index: 1;
+    transition: all .2s ease;
+    box-shadow: 0px 15px 30px 0px rgb(0 0 0 / 2%);
+}
+
+.close {
+    transform: translateX(-18rem);
+}
+
+.close-section {
+    margin-left: 0px !important;
+}
+
+.hamburger {
+    display: inline-block;
+    cursor: pointer;
+    left: 0px;
+    position: relative;
+    top: 3px;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    width: 26px;
+    z-index: 999;
+}
+
+.hamburger .line {
+    background: rgb(255, 255, 255);
+    display: block;
+    height: 3px;
+    border-radius: 3px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-header {
+    position: fixed !important;
+    height: 3.5rem;
+    width: 17.5rem;
+    margin-top: 10px;
+    display: inline-block;
+    text-align: left;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    transition: all .2s ease;
+    z-index: 10;
+}
+
+.nav-control {
+    cursor: pointer;
+    position: absolute;
+    /* right: 15px; */
+    left: 5px;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    font-size: 1.4rem;
+    padding: 2px 0.5rem 0;
+    border-radius: 2px;
+}
+
+.container-scroller {
+    overflow: hidden;
+}
+
+.page-body-wrapper.full-page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    padding: 4.75rem 4.25rem;
+    width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.flex-grow {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.auth .auth-form-light {
+    background: #ffffff;
+}
+
+.auth form .form-group .form-control {
+    background: transparent !important;
+    border-radius: 0 !important;
+    font-size: .9375rem !important;
+}
+
+.auth form .form-group {
+    margin-bottom: 1.5rem !important;
+}
+
+.btn-login {
+    background: linear-gradient(80deg, #cc1919, #e17272);
+}
+
+.bg-logo {
+    background: linear-gradient(80deg, #cc1919, #e17272);
+}
+
+.text-right .fa {
+    font-size: 25px;
+}
+
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+
+#snackbar {
+    visibility: hidden;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 16px;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
+}
+
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+
+#snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+
+/* Animations to fade the snackbar in and out */
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+.login-bg {
+    background: url(../../../images/bg.jpg);
+    background-position: center;
+    background-size: contain;
+}

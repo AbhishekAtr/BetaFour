@@ -1,6 +1,6 @@
 <?php
 // Include the database configuration file  
-include 'partials/db_connect.php';
+include 'include/db_connect.php';
 
 
 // If file upload form is submitted 
@@ -47,8 +47,8 @@ if (isset($_POST['c_update'])) {
 ?>
 
 
-<?php include "include/css-url.php"; ?>
-<?php include "partials/sidebar.php"; ?>
+<?php include 'include/css-url.php';
+include 'include/header.php'; ?>
 <?php
 
 if ($status) {
@@ -76,53 +76,51 @@ $id = $_GET['id'];
 $query = mysqli_query($conn, "SELECT * from `categories` where cat_id='$id'");
 $row = mysqli_fetch_array($query);
 ?>
-<div class="content-body my-5 height-100 bg-light" id="main">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 text-right mt-5">
-                <a href="categories.php">
-                <i class="fa fa-arrow-left text-success"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <form class="mt-5" method="post" action="editcategories.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
+<div class="main-section" id="main">
+    <div class="container">
+        <div class="adminForm card m-3 p-5">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="category" class="control-label">Category Name <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" value="<?php echo $row['cat_title']; ?>" name="category" placeholder="Enter category name">
-                    </div>
+                <div class="col-md-12 text-right">
+                    <a href="categories.php">
+                        <i class="fa fa-arrow-left text-success"></i>
+                    </a>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="cat_desc" class="control-label">Category Description <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" value="<?php echo $row['cat_desc']; ?>" name="desc" placeholder="Enter category name">
+            </div>
+            <form class="mt-5" method="post" action="editcategories.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
+                
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <label for="category" class="control-label">Category Name <sup class="text-danger bold">*</sup></label>
+                            <input type="text" class="form-control" value="<?php echo $row['cat_title']; ?>" id="category" name="category" placeholder="Enter category name" required>
+                        </div>
                     </div>
-
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-group">
-                        <label>Image (png,jpeg,jpg) (1920x800 in pixel, Max size 1MB)<sup class="mandatory">*</sup> </label>
-                        <div class="input-group mb-3">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" value="<?php echo $row['cat_img']; ?>" name="image" file-input="packageFile" accept=".jpg, .jpeg, .png">
-                                <label class="custom-file-label">Choose file</label>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <label for="cat_desc" class="control-label">Category Description <sup class="text-danger bold">*</sup></label>
+                            <input type="text" class="form-control" value="<?php echo $row['cat_desc']; ?>" id="cat_desc" name="cat_desc" placeholder="Enter Description" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <label>Image (png,jpeg,jpg) (Max size 1MB)<sup class="text-danger bold">*</sup> </label>
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                <input type="file" value="<?php echo $row['cat_img']; ?>" class="form-control" id="c_image" name="c_image" file-input="packageFile" accept=".jpg, .jpeg, .png" required>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2 col-sm-6">
-                    <label></label>
-                    <div class="input-group mt-2">
-                        <button type="submit" name="c_update" title="Submit" class="btn btn-warning btn-block">Update Category</button>
-                        <!-- <button type="button" title="Cancel" class="btn btn-danger mr-lf-2-per" ng-click="cancel()">Cancel</button> -->
+                    <div class="col-lg-1 mt-3">
+                    <button type="submit" name="c_update" title="Submit" class="btn btn-success btn-block">Update</button>
+                    </div>
+                    <div class="col-lg-1 mt-3">
+                        <a href="categories.php" type="button" class="btn btn-danger">Cancel</a>
                     </div>
                 </div>
-                
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
-<?php include "include/js-url.php"; ?>
+<?php include 'include/footer.php';
+include 'include/js-url.php'; ?>

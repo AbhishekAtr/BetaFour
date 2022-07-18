@@ -68,11 +68,11 @@ function make_slide_indicators($conn)
     }
     ?>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <a class="carousel-control-prev" id="carouselArrow" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <a class="carousel-control-next" id="carouselArrow" href="#carouselExampleIndicators" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -294,17 +294,17 @@ function make_slide_indicators($conn)
 
         while ($row = mysqli_fetch_array($result)) { ?>
           <div class="col-md-4">
-            <a  href="products.php?cat_name=<?php echo $row['cat_title']; ?>">
-            <div id="product-1" class="single-product">
-            
-              <div class="part-1 hover-zoom text-center">
-                <img src="<?php echo $url . $row['cat_img']; ?>" alt="">
+            <a href="products.php?cat_name=<?php echo $row['cat_title']; ?>">
+              <div id="product-1" class="single-product">
+
+                <div class="part-1 hover-zoom text-center">
+                  <img src="<?php echo $url . $row['cat_img']; ?>" alt="">
+                </div>
+                <div class="part-2">
+                  <h3 class="product-title text-danger text-uppercase text-center"><?php echo $row['cat_title']; ?></h3>
+                  <p class="text-center text-dark"><?php echo $row['cat_desc']; ?></p>
+                </div>
               </div>
-              <div class="part-2">
-                <h3 class="product-title text-danger text-uppercase text-center"><?php echo $row['cat_title']; ?></h3>
-                <p class="text-center text-dark"><?php echo $row['cat_desc']; ?></p>
-              </div>
-            </div>
             </a>
           </div>
 
@@ -452,78 +452,6 @@ function make_slide_indicators($conn)
       </div>
     </div>
 </section>
-<!-- <section class="wrapper">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card text-white card-has-bg click-col news_card" style="background-image:url('images/IMG_20180720_145302015-370x270.jpg');">
-              <img class="card-img d-none" src="images/IMG_20180720_145302015-370x270.jpg" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-              <div class="card-img-overlay d-flex flex-column">
-                <div class="card-body">
-                  <small class="card-meta mb-2">Thought Leadership</small>
-                  <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                  <small><i class="far fa-clock"></i> October 15, 2020</small>
-                </div>
-                <div class="card-footer">
-                  <div class="media">
-                    <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">
-                    <div class="media-body">
-                      <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
-                      <small>Director of UI/UX</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card text-white card-has-bg click-col news_card" style="background-image:url('images/20190720_141453-370x270.jpg');">
-              <img class="card-img d-none" src="images/20190720_141453-370x270.jpg" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-              <div class="card-img-overlay d-flex flex-column">
-                <div class="card-body">
-                  <small class="card-meta mb-2">Thought Leadership</small>
-                  <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                  <small><i class="far fa-clock"></i> October 15, 2020</small>
-                </div>
-                <div class="card-footer">
-                  <div class="media">
-                    <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">
-                    <div class="media-body">
-                      <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
-                      <small>Director of UI/UX</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card text-white card-has-bg click-col news_card" style="background-image:url('images/IMG-0816-370x270.jpg');">
-              <img class="card-img d-none" src="images/IMG-0816-370x270.jpg" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-              <div class="card-img-overlay d-flex flex-column">
-                <div class="card-body">
-                  <small class="card-meta mb-2">Thought Leadership</small>
-                  <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                  <small><i class="far fa-clock"></i> October 15, 2020</small>
-                </div>
-                <div class="card-footer">
-                  <div class="media">
-                    <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">
-                    <div class="media-body">
-                      <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
-                      <small>Director of UI/UX</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section> -->
 <section class="news-slider d-flex justify-content-center  my-5">
   <div class="container">
     <div class="row">
@@ -533,7 +461,7 @@ function make_slide_indicators($conn)
           <div class="card-body text-center">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-danger">View</a>
+            <a href="newsdetails.php" class="btn btn-danger">View</a>
           </div>
         </div>
       </div>
@@ -544,7 +472,7 @@ function make_slide_indicators($conn)
           <div class="card-body text-center">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-danger">View</a>
+            <a href="newsdetails.php" class="btn btn-danger">View</a>
           </div>
         </div>
       </div>
@@ -554,7 +482,7 @@ function make_slide_indicators($conn)
           <div class="card-body text-center">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-danger">View</a>
+            <a href="newsdetails.php" class="btn btn-danger">View</a>
           </div>
         </div>
       </div>
@@ -571,16 +499,18 @@ function make_slide_indicators($conn)
 <div class="container heading my-5">
   <h4 class="text-uppercase">Our Others <span>B</span>rands</h4>
 </div>
-<div class="container my-5">
+<div class="container my-5 ">
   <div class="row text-center">
-    <div class="col-md-4 col-lg-4">
-      <img src="images/brands/1.png" alt="">
-    </div>
-    <div class="col-md-4 col-lg-4">
-      <img src="images/brands/SM-LOGO-png-1536x585.png" alt="" style="width: 350px;">
-    </div>
-    <div class="col-md-4 col-lg-4">
-      <img src="images/brands/SMK-circle-logo-png-150x150.png" alt="">
+    <div class="customer-logos">
+      <div class="col-md-4 col-lg-4 text-center">
+        <img src="images/brands/1.png" alt="">
+      </div>
+      <div class="col-md-4 col-lg-4 text-center">
+        <img src="images/brands/SM-LOGO-png-1536x585.png" alt="" >
+      </div>
+      <div class="col-md-4 col-lg-4 text-center">
+        <img src="images/brands/SMK-circle-logo-png-150x150.png" alt="" >
+      </div>
     </div>
   </div>
 </div>
@@ -595,7 +525,7 @@ function make_slide_indicators($conn)
 <?php include 'include/footer.php'; ?>
 
 
-{/* WhatsApp icon */}
-      <a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
-        <i class="fa fa-whatsapp whatsapp-icon"></i>
-      </a>
+
+<a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+  <i class="fa fa-whatsapp whatsapp-icon"></i>
+</a>

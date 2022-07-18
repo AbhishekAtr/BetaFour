@@ -1,6 +1,6 @@
 <?php
 //Include the database configuration file  
-include 'partials/db_connect.php';
+include 'include/db_connect.php';
 
 // If file upload form is submitted 
 $status = false;
@@ -40,7 +40,8 @@ if (isset($_POST["p_insert"])) {
                 $smt->execute();
                 if ($insert) {
                     $status = true;
-                    header("location: products.php");
+                    // session_destroy();
+                    // header("location: products.php");
                 } else {
                     $statusMsg = "File upload failed, please try again.";
                 }
@@ -53,7 +54,6 @@ if (isset($_POST["p_insert"])) {
     }
 }
 ?>
-
 <?php
 if (isset($_POST['delete_btn_set'])) {
     $id = $_POST['delete_id'];
@@ -61,85 +61,122 @@ if (isset($_POST['delete_btn_set'])) {
     $query = mysqli_query($conn, $delete);
 }
 ?>
-<?php include "include/css-url.php"; ?>
-
-<?php include "partials/sidebar.php"; ?>
 
 <?php
-
-if ($status) {
-
-    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Hurry !!!!</strong> Your Image uploaded successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>';
-}
-
-if ($statusMsg) {
-
-    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error</strong> ' . $statusMsg . '
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>';
-}
+include 'include/css-url.php';
+include 'include/header.php';
 ?>
+<div class="main-section" id="main">
+    <div class="container">
+        <div class="adminForm card m-3 p-5">
+            <?php
 
-<div class="content-body my-5 height-100 bg-light" id="main">
-    <div class="container-fluid">
+            if ($status) {
 
-        <form class="mt-5" method="post" action="products.php" enctype="multipart/form-data">
-            <div class="row page-titles mx-0">
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="productname" class="control-label">Product Name <sup class="mandatory">*</sup></label>
-                        <input type="text" class="form-control" id="p_name" name="p_name" placeholder="Enter category name" required>
+                echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Hurry !!!!</strong> Your Data uploaded successfully.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>';
+            }
+
+            if ($statusMsg) {
+
+                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error</strong> ' . $statusMsg . '
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
+                </div>';
+            }
+            ?>
+            <form method="post" action="products.php" enctype="multipart/form-data">
+                <div class="row page-titles mx-0">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <label for="productname" class="control-label">Product Name <sup class="text-danger bold">*</sup></label>
+                            <input type="text" class="form-control" id="p_name" name="p_name" placeholder="Enter product name" required>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="category" class="control-label">Product qty <sup class="mandatory">*</sup></label>
-                        <input type="number" id="quantity" min="1" max="50" class="form-control"  name="p_qty" placeholder="Enter quantity" required>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="image" class="control-label">Product Image <sup class="mandatory">*</sup></label>
-                        <div class="input-group mb-3">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="p_image" name="p_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
-                                <label class="custom-file-label">Choose file</label>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <label for="image" class="control-label">Product Image <sup class="text-danger bold">*</sup></label>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" id="p_image" name="p_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
                             </div>
                         </div>
                     </div>
-                </div>
-
-               <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="image" class="control-label">Other Image <sup class="mandatory">*</sup></label>
-                        <div class="input-group mb-3">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="f_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
-                                <label class="custom-file-label">Choose file</label>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <label for="image" class="control-label">Other Image <sup class="text-danger bold">*</sup></label>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" name="f_image" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group">
+                            <label for="category" class="control-label">Category<sup class="text-danger bold">*</sup> </label>
+                            <select class="form-select" name="p_cat" id="p_cat" required>
+                                <option selected>Select Category</option>
+                                <?php
+                                $sql = "SELECT * from `categories`";
+                                if (mysqli_query($conn, $sql)) {
+                                    echo "";
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                }
+                                $count = 1;
+                                $result = mysqli_query($conn, $sql);
+                                if (mysqli_num_rows($result) > 0) {
+
+                                    while ($row = mysqli_fetch_array($result)) { ?>
+
+
+                                        <option value="<?php echo $row['cat_title']; ?>"><?php echo $row['cat_title']; ?> </option>
+                                <?php
+                                        $count++;
+                                    }
+                                } else {
+                                    echo '0 results';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-12 mt-4">
+
+                        <div class="form-group">
+                            <textarea id="editor" name="p_desc"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-1 mt-3">
+                        <button type="submit" name="p_insert" class="btn btn-success">Upload</button>
+                    </div>
+                    <div class="col-lg-1 mt-3">
+                        <a href="products.php" type="button" class="btn btn-danger">Cancel</a>
+                    </div>
                 </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="adminTable card m-3 p-5">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover" id="employee_data">
+                        <thead>
+                            <tr>
+                                <th>S.no</th>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th class="wd-10">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <label for="category" class="control-label">Category<sup class="mandatory">*</sup> </label>
-                        <select class="form-control " name="p_cat" id="p_cat" required>
-                            <option selected>Select Category</option>
                             <?php
-
-                            include 'partials/db_connect.php';
-                            $sql = "SELECT * from `categories`";
+                            $sql = "SELECT * from `products`";
                             if (mysqli_query($conn, $sql)) {
                                 echo "";
                             } else {
@@ -151,8 +188,21 @@ if ($statusMsg) {
 
                                 while ($row = mysqli_fetch_array($result)) { ?>
 
+                                    <tr>
+                                        <td><?php echo $count; ?></td>
+                                        <td>
+                                            <img class="wd-120" src="<?php echo $row['product_img']; ?>" alt="" height="100" width="100">
+                                        </td>
+                                        <td><?php echo $row['product_title']; ?></td>
+                                        <td><?php echo $row['product_cat']; ?></td>
+                                        <td>
+                                            <input type="hidden" class="delete_id_value" value="<?php echo $row['product_id'] ?>">
+                                            <a href='editproducts.php?id=<?php echo $row['product_id']; ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i></a>
+                                            <button href="" class="btn btn-danger del_Data" id="<?php echo $row['product_id'];?>"><i class="fa fa-trash"></i></button>
+                                            <!-- <a href="javascript:void(0)" class="btn btn-danger delete_btn_ajax"><i class="fa fa-trash"></i></a> -->
+                                        </td>
+                                    </tr>
 
-                                    <option value="<?php echo $row['cat_title']; ?>"><?php echo $row['cat_title']; ?> </option>
                             <?php
                                     $count++;
                                 }
@@ -160,100 +210,25 @@ if ($statusMsg) {
                                 echo '0 results';
                             }
                             ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-12 my-2">
-                    <textarea id="mytextarea" class="form-control" rows="5" placeholder="Description" spellcheck="false" name="p_desc"> </textarea>
-                </div>
-                <div class="col-md-12 mt-2">
-                    <div class="form-group">
-                        <div class="input-group  mt-4">
-                            <button type="submit" name="p_insert" title="Submit" class="btn btn-warning btn-block">Upload</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>S.no</th>
-                                        <th>Image</th>
-                                        <!-- <th>Other Image</th> -->
-                                        <th>Title</th>
-                                        <th>Quantity</th>
-                                        <th>Category</th>
-                                        <th class="wd-10">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
 
-                                    <?php
-
-                                    include 'partials/db_connect.php';
-                                    $sql = "SELECT * from `products`";
-                                    if (mysqli_query($conn, $sql)) {
-                                        echo "";
-                                    } else {
-                                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                                    }
-                                    $count = 1;
-                                    $result = mysqli_query($conn, $sql);
-                                    if (mysqli_num_rows($result) > 0) {
-
-                                        while ($row = mysqli_fetch_array($result)) { ?>
-
-                                            <tr>
-                                                <td><?php echo $count; ?></td>
-                                                <td>
-                                                    <img class="wd-120" src="<?php echo $row['product_img']; ?>" alt="" height="100" width="100">
-                                                </td>
-                                                <!-- <td>
-                                                    <img class="wd-120" src="<?php echo $row['other_img']; ?>" alt="" height="100" width="100">
-                                                </td> -->
-                                                <td><?php echo $row['product_title']; ?></td>
-                                                <td><?php echo $row['product_qty']; ?></td>
-                                                <td><?php echo $row['product_cat']; ?></td>
-                                                <td>
-                                                    <input type="hidden" class="delete_id_value" value="<?php echo $row['product_id'] ?>">
-                                                    <a href='editproducts.php?id=<?php echo $row['product_id']; ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
-                                                        <a href="javascript:void(0)" class="btn btn-danger delete_btn_ajax"><i class="fa fa-trash"></i></a>
-                                                </td>
-                                            </tr>
-
-                                    <?php
-                                            $count++;
-                                        }
-                                    } else {
-                                        echo '0 results';
-                                    }
-                                    ?>
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <div style="margin: 10px;">
-                            <dir-pagination-controls class="pull-right pagination" max-size="8" direction-links="true" boundary-links="true"></dir-pagination-controls>
-                        </div>
-
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
-<?php include "include/js-url.php"; ?>
-<?php include "include/deletemodal.php"; ?>
+<?php
+include 'include/footer.php';
+include 'include/js-url.php';
+include "include/deletemodal.php";
+?>
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
 <script>
     $(document).ready(function() {
         $('.delete_btn_ajax').click(function(e) {
@@ -290,9 +265,54 @@ if ($statusMsg) {
                 });
         });
     });
+
+    $(document).on('click', '.del_Data', function() {
+        var deleteid = $(this).attr('id');
+        console.log(deleteid);
+        $.ajax({
+            type: "POST",
+            url: "delete.php",
+            data: {
+                "delete_id": deleteid,
+            },
+            success: function(data) {
+                $('#del_info').html(data);
+                $('#deldata').modal('show');
+            }
+        });
+    });
+    $(document).on('click', '#del', function() {
+        $.ajax({
+            type: "POST",
+            url: "delete.php",
+            data: $('#delform').serialize(),
+            success: function(data) {
+                $('#deldata').modal('hide');
+                location.reload();
+            }
+        });
+    });
 </script>
-<script>
-    if (window.history.replaceState) {
-        window.history.replaceState(null, null, window.location.href);
-    }
-</script>
+
+
+
+<div class="modal fade" id="deldata" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="#" method="post" id="delform">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="del_info">
+                    
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
