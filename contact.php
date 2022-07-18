@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="wrap-contact100 my-5">
-                    <form class="contact100-form validate-form">
+                    <!-- <form class="contact100-form validate-form" id="enquiry" method="POST">
                         <span class="contact100-form-title">
                             Send Us A Message
                         </span>
@@ -51,10 +51,30 @@
                             <span class="focus-input100"></span>
                         </div>
                         <div class="container-contact100-form-btn">
-                            <button class="contact100-form-btn btn btn-danger">
+                            <button class="contact100-form-btn btn btn-danger" onclick="submitForm('enquiry')">
                                 Send Message
                             </button>
                         </div>
+                    </form> -->
+                    <form class="contact100-form validate-form" id="enquery" method="POST">
+                        <!-- Change Placeholder and Title -->
+                        <div class="form-group col-md-12">
+                            <input class="input-text form-control required-field input100" type="text" name="name" id="name" placeholder="Name" required />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input class="input-text form-control required-field email-field input100" type="email" name="email" id="email" placeholder="Email" required />
+                        </div>
+                        <!-- <div class="form-group">
+                        <input type="service" class="form-control" name="service" placeholder="Enter Course" required>
+                    </div> -->
+                        <div class="form-group col-md-12">
+                            <input class="input-text form-control required-field input100" type="text" name="phone" id="phone" onkeypress="if ( isNaN(this.value +
+                          String.fromCharCode(event.keyCode) )) return false;" maxlength="10" minlength="10" placeholder="Phone Number" required />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <textarea class="input-text form-control required-field input100" name="message" id="message" placeholder="Message"></textarea>
+                        </div>
+                        <button class="btn btn_book_01 btn-danger btn btn-1c btn-block" onclick="submitForm('enquery')" ng-disabled="submitBtn">Request a Call</button>
                     </form>
                     <div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg')">
                         <div class="dis-flex  size1 p-b-47">
@@ -79,7 +99,7 @@
                                     Lets Talk
                                 </span>
                                 <span class="txt3">
-                                   <a href="tel:011-42575425" class="txt3">011-42575425</a>
+                                    <a href="tel:011-42575425" class="txt3">011-42575425</a>
                                 </span>
                             </div>
                         </div>
@@ -92,7 +112,7 @@
                                     General Support
                                 </span>
                                 <span class="txt3">
-                                   <a href="mailto:info@www.betafour.in" class="txt3">info@www.betafour.in</a>
+                                    <a href="mailto:info@www.betafour.in" class="txt3">info@www.betafour.in</a>
                                 </span>
                             </div>
                         </div>
@@ -110,6 +130,6 @@
 <?php include 'include/footer.php'; ?>
 
 
-      <a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
-        <i class="fa fa-whatsapp whatsapp-icon"></i>
-      </a>
+<a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+    <i class="fa fa-whatsapp whatsapp-icon"></i>
+</a>

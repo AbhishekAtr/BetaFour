@@ -25,30 +25,30 @@ session_abort();
 <?php include 'include/css-url.php'; ?>
 
 <body>
-    <div class="container-scroller login-bg">
-        <div class="container-fluid page-body-wrapper full-page-wrapper">
-            <div class="content-wrapper d-flex justify-content-center auth">
-                <div class="row flex-grow">
-                    <div class="col-lg-4 m-auto">
-                    <?php
+    <section class="vh-100 login-bg">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-6 col-xl-6">
+                    <div class="card" style="border-radius: 1rem;">
+                        <?php
                         if ($login) {
 
                             echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Hurry !!!!</strong> Login Successfully.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>';
+                              <strong>Hurry !!!!</strong> Login Successfully.
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>';
                         }
 
                         if ($showError) {
 
                             echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error</strong> ' . $showError . '
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>';
+                              <strong>Error</strong> ' . $showError . '
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                          </div>';
                         }
                         ?>
                         <div class="auth-form-light text-left p-5">
@@ -74,15 +74,20 @@ session_abort();
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-login text-white col-md-12">Login</button>
+                                <button type="submit" class="btn btn-login text-white col-md-12 mt-4">Login</button>
                             </form>
                         </div>
                     </div>
+                    <!-- content-wrapper ends -->
                 </div>
+                <!-- page-body-wrapper ends -->
             </div>
-            <!-- content-wrapper ends -->
         </div>
-        <!-- page-body-wrapper ends -->
-    </div>
+    </section>
 </body>
 <?php include 'include/js-url.php'; ?>
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>

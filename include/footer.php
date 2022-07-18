@@ -125,7 +125,7 @@
                             <div class="form-group">
                                 <textarea class="form-control" name="message" id="message" rows="3" placeholder="Message"></textarea>
                             </div>
-                            <button class="btn btn-danger btn1 text-uppercase" onclick="submitform('enquiry')">Subscribe</button>
+                            <button class="btn btn_book_01 btn-danger btn1 btn-1c btn-block" onclick="submitform('enquiry')">Subscribe</button>
                         </form>
                     </div>
                 </section>
