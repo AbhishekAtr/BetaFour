@@ -481,3 +481,7 @@ a .nav-text {
     background-position: center;
     background-size: contain;
 }
+
+#editslider {
+    display: none;
+}

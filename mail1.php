@@ -31,14 +31,14 @@ try {
     //Server settings
     // $mail->SMTPDebug = 2;                                 // Enable verbose debug output
     $mail->isSMTP();
-    // Set mailer to use SMTP
+                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
     $mail->Username = 'mailsendingemail@gmail.com';                 // SMTP username
     $mail->Password = 'nypheqseqdpcdgdz';                           // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                     // TCP port to connect to
-// enquiry@connectinfosys.commailsendingemail@gmail.com', 'Contact Queries'
+    // enquiry@connectinfosys.commailsendingemail@gmail.com', 'Contact Queries'
     $mail->setFrom('gspfoundation33@gmail.com', 'Contact Queries');
     $mail->addAddress('abhishekverma339@gmail.com');     // Add a recipient
     $mail->addAddress('abhishekverma339@gmail.com');     // Add a recipient
@@ -56,7 +56,7 @@ try {
     $mail->Body.='<p style="font-size: 25px;text-align: center;text-transform:capitalize;font-weight: 800;margin:0; color:#ed1c24">Contact Form</p>';
     $mail->Body.='<p style="font-size: 16px;"><strong>Hello </strong>BetaFour,</p>';
     $mail->Body.='<p style="font-size: 16px;">Someone has tried to contact BetaFour team.</p>';
-    $mail->Body.='<p style="font-size: 16px;">Name:'.@$name.'</p>';
+    $mail->Body.='<p style="font-size: 16px;">Name:'.@$name.' </p>';
     $mail->Body.='<p style="font-size: 16px;">Email:'.@$email.'</p>';
     $mail->Body.='<p style="font-size: 16px;">Message Detail:'.@$msg.'</p>';
 
@@ -66,7 +66,7 @@ try {
     $mail->Body.='</div>';
     $mail->Body.='</body>';
     $mail->Body.='</html>';
-    $mail->Subject = 'BetaFour';
+    $mail->Subject = 'Vouivre';
     $mail->send();
     echo '1';
 } catch (Exception $e) {
@@ -76,3 +76,4 @@ try {
 }else{
     echo "mail not provide";
 }
+?>

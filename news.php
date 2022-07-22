@@ -11,7 +11,7 @@
             <div class="col-lg-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#" class="text-white">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.php" class="text-white">Home</a></li>
                         <li class="breadcrumb-item active text-white" aria-current="page">News & Events</li>
                     </ol>
                 </nav>
@@ -65,9 +65,9 @@
                             </div>
                             <div class="col-sm-8  grid-margin">
                                 <a href="newsdetails.php">
-                                    <h4 class="mb-2 font-weight-600">
-                                        Pro Wave Expo Hyderabad 2021
-                                    </h4>
+                                <h4 class="mb-2 font-weight-600">
+                                    Pro Wave Expo Hyderabad 2021
+                                </h4>
                                 </a>
                                 <div class="fs-13 mb-2">
                                     <a href="" class="text-danger">
@@ -100,9 +100,9 @@
                             </div>
                             <div class="col-sm-8  grid-margin">
                                 <a href="newsdetails.php">
-                                    <h4 class="mb-2 font-weight-600">
-                                        INDIAN DJ EXPO 2019
-                                    </h4>
+                                <h4 class="mb-2 font-weight-600">
+                                    INDIAN DJ EXPO 2019
+                                </h4>
                                 </a>
                                 <div class="fs-13 mb-2">
                                     <a href="" class="text-danger">
@@ -135,9 +135,9 @@
                             </div>
                             <div class="col-sm-8 grid-margin">
                                 <a href="newsdetails.php">
-                                    <h4 class="mb-2 font-weight-600">
-                                        INDIAN DJ EXPO 2018
-                                    </h4>
+                                <h4 class="mb-2 font-weight-600">
+                                    INDIAN DJ EXPO 2018
+                                </h4>
                                 </a>
                                 <div class="fs-13 mb-2">
                                     <a href="" class="text-danger">
@@ -169,9 +169,9 @@
                             </div>
                             <div class="col-sm-8 grid-margin">
                                 <a href="newsdetails.php">
-                                    <h4 class="mb-2 font-weight-600">
-                                        Palm Expo Mumbai 2019
-                                    </h4>
+                                <h4 class="mb-2 font-weight-600">
+                                    Palm Expo Mumbai 2019
+                                </h4>
                                 </a>
                                 <div class="fs-13 mb-2 text-dark">
                                     <a href="" class="text-danger">
@@ -202,9 +202,9 @@
                             </div>
                             <div class="col-sm-8 grid-margin">
                                 <a href="newsdetails.php">
-                                    <h4 class="mb-2 font-weight-600">
-                                        Palm Expo 2017
-                                    </h4>
+                                <h4 class="mb-2 font-weight-600">
+                                    Palm Expo 2017
+                                </h4>
                                 </a>
                                 <div class="fs-13 mb-2">
                                     <a href="" class="text-danger">
@@ -235,9 +235,9 @@
                             </div>
                             <div class="col-sm-8 grid-margin">
                                 <a href="newsdetails.php">
-                                    <h4 class="mb-2 font-weight-600">
-                                        INDIAN DJ EXPO 2017
-                                    </h4>
+                                <h4 class="mb-2 font-weight-600">
+                                    INDIAN DJ EXPO 2017
+                                </h4>
                                 </a>
                                 <div class="fs-13 mb-2">
                                     <a href="" class="text-danger">
@@ -272,43 +272,43 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Leave a Reply</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="your name">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Email address <span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Website <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="website">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Comments <span class="text-danger">*</span></label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Comments"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                <button type="Submit" class="btn btn-danger">Submit</button>
-            </div>
-        </div>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Leave a Reply</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+      <div class="form-group">
+    <label for="exampleFormControlInput1">Name <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="your name">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address <span class="text-danger">*</span></label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Website <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="website">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Comments <span class="text-danger">*</span></label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Comments"></textarea>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="Submit" class="btn btn-danger">Submit</button>
+      </div>
     </div>
+  </div>
 </div>
 
 
-<a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
-    <i class="fa fa-whatsapp whatsapp-icon"></i>
-</a>
+      <a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>

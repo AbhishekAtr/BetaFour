@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $showError = "Incorrect email or password";
     }
 }
-session_abort();
+// session_abort();
 ?>
 
 <?php include 'include/css-url.php'; ?>
@@ -57,7 +57,7 @@ session_abort();
                             </div>
                             <h4 style="font-family: cursive;" class="text-center">Hello! let's get started</h4>
                             <h6 class="font-weight-regular text-center" style="font-family: System-UI;">Log in to continue.</h6>
-                            <form action="index.php" method="POST">
+                            <form action="" method="post">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1" class="text-white">Email address</label>
                                     <input type="text" name="username" id="username" class="form-control form-control-lg" placeholder="Enter email">
@@ -83,6 +83,16 @@ session_abort();
                 <!-- page-body-wrapper ends -->
             </div>
         </div>
+        <div class="toast" id="myToast" data-bs-autohide="true">
+            <div class="toast-header">
+                <strong class="me-auto"><i class="bi-bell-fill"></i>notification</strong>
+                <small>1 sec ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                <p id="error_message"></p>
+            </div>
+        </div>
     </section>
 </body>
 <?php include 'include/js-url.php'; ?>
@@ -90,4 +100,34 @@ session_abort();
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }
+</script>
+<script>
+    $(document).ready(function() {
+        $("#submit").click(function() {
+            var username = $("#username").val().trim();
+            var password = $("#password").val().trim();
+
+            if (username != "" && password != "") {
+                
+                $.ajax({
+                    url: 'login.php',
+                    type: 'post',
+                    data: {
+                        username: username,
+                        password: password
+                    },
+                    success: function(data) {
+                        
+                        var msg = "";
+                        if (response == 1) {
+                            window.location = "home-slider.php";
+                        } else {
+                            msg = "Invalid username and password!";
+                        }
+                        $("#snackbar").html(msg);
+                    }
+                });
+            }
+        });
+    });
 </script>

@@ -322,63 +322,8 @@ function make_slide_indicators($conn)
 </section>
 <!-- end -->
 
-<!-- Best Product Slider section start -->
-
-<section class="my-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="heading">
-          <h3 class="text-center text-uppercase">The <span>B</span>est PA & DJ Equipment</h3>
-        </div>
-      </div>
-    </div>
-</section>
 
 
-<div class="container">
-  <div class="row my-5">
-    <div class="col-lg-12">
-      <div class="card-slider">
-        <?php
-        $sql = "SELECT * from `categories`";
-        if (mysqli_query($conn, $sql)) {
-        } else {
-        }
-        $count = 1;
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0) {
-          while ($row = mysqli_fetch_array($result)) { ?>
-            <div class="card s_card text-center">
-              <!-- Notice that both the image and the product title are in the same link. This can massively reduce the number of redundant tabstops on a page with lots of products, creating a better UX for keyboard-only and screen reader users. -->
-              <a href="#" target="_blank" class="main-link">
-                <h2 class="title"><?php echo $row['cat_title']; ?></h2>
-                <!-- This image has a descriptive alt attribute, so it helps to place it after the heading in the DOM. Flexbox is used to place it above the heading visually (see the CSS tab to see how). -->
-                <div class="image">
-                  <img src="<?php echo $url . $row['cat_img']; ?>" alt="Small succulent with long, spikey leaves in a mug-like planter.">
-                </div>
-              </a>
-              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <a href="products.php?cat_name=<?php echo $row['cat_title']; ?>">
-                <button class="btn btn-danger">View all</button>
-              </a>
-            </div>
-        <?php
-            $count++;
-          }
-        } else {
-          echo '0 results';
-        }
-        ?>
-
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-
-<!-- end -->
 
 <!-- Why Us Section -->
 <section class="why-us">

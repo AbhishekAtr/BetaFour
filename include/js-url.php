@@ -7,7 +7,8 @@
   <script src="./js/main.js"></script>
   <script src="./css/slick.min.js"></script>
   <script>
-        function submitForm(formId) {
+    // Form dynimc start
+    function submitForm(formId) {
         
         try {
 
@@ -53,7 +54,7 @@
     }
     
     function submitform(formId) {
-        
+     
         try {
 
             if (!$("#" + formId).valid()) {
@@ -96,9 +97,8 @@
             alert("Something went wrong, please try again later")
         }
     }
-
-  </script>
-  <script>
+</script>
+<script>
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }

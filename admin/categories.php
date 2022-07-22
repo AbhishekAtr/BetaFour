@@ -3,13 +3,12 @@
 include 'include/db_connect.php';
 
 // If file upload form is submitted 
-$showAlert = false;
-$showError = false;
+
 session_start();
 if (isset($_POST["c_insert"])) {
     $cat_title = $_POST['category'];
     $cat_desc = $_POST['cat_desc'];
-    $showAlert = 'error';
+
     if (!empty($_FILES["c_image"]["name"])) {
         // Get file info 
         $fileName = basename($_FILES["c_image"]["name"]);
@@ -29,16 +28,62 @@ if (isset($_POST["c_insert"])) {
                 $smt = $conn->prepare($insert);
                 $smt->execute();
                 if ($insert) {
-                    $showAlert = true;
+                    $_SESSION['status'] = "Category Insert Successfully";
+                    $_SESSION['status_code'] = "success";
                     // header("loaction: categories.php");
                 } else {
-                    $showError = "File upload failed, please try again.";
+                    $_SESSION['status'] = "File upload failed, please try again.";
+                    $_SESSION['status_code'] = "error";
                 }
             } else {
-                $showError = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
+                $_SESSION['status'] = "Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.";
+                $_SESSION['status_code'] = "error";
             }
         } else {
-            $showError = 'Please select an image file to upload.';
+            $_SESSION['status'] = "Please select an image file to upload.";
+            $_SESSION['status_code'] = "error";
+        }
+    }
+}
+?>
+<?php
+if (isset($_POST['update'])) {
+    $id = $_POST['edit_id'];
+
+    $title = $_POST['title'];
+    $desc = $_POST['desc'];
+    if (!empty($_FILES["e_image"]["name"])) {
+        // Get file info 
+        $fileName = basename($_FILES["e_image"]["name"]);
+        // $title = $_FILES['title']['name'];
+        $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
+
+        // Allow certain file formats 
+        $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+        if (in_array($fileType, $allowTypes)) {
+            $image = $_FILES['e_image']['tmp_name'];
+
+            $imgContent = addslashes(file_get_contents($image));
+            $destinationfile = 'upload/' . $fileName;
+            if (move_uploaded_file($image, $destinationfile)) {
+                // Update image content into database
+                $query = "UPDATE `categories` SET  `cat_img`='$destinationfile', `cat_title`= '$title', `cat_desc` = '$desc' WHERE cat_id='$id'";
+                $smt = $conn->prepare($query);
+                $smt->execute();
+                if ($query) {
+                    $_SESSION['status'] = "Category Update Successfully";
+                    $_SESSION['status_code'] = "success";
+                } else {
+                    $_SESSION['status'] = "File upload failed, please try again.";
+                    $_SESSION['status_code'] = "error";
+                }
+            } else {
+                $_SESSION['status'] = "Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.";
+                $_SESSION['status_code'] = "error";
+            }
+        } else {
+            $_SESSION['status'] = "Please select an image file to upload.";
+            $_SESSION['status_code'] = "error";
         }
     }
 }
@@ -61,23 +106,7 @@ include 'include/header.php';
     <div class="container">
         <div class="adminForm card m-3 p-5">
             <form class="mt-5" method="post" action="categories.php" enctype="multipart/form-data">
-                <?php
-                if ($showAlert) {
 
-                    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Hurryyyyy!!!!</strong>  Data Insert Successfully.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
-                }
-
-                if ($showError) {
-
-                    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  <strong>Error</strong> ' . $showError . '
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>';
-                }
-                ?>
                 <div class="row">
                     <div class="col-md-4 col-sm-6">
                         <div class="form-group">
@@ -96,7 +125,7 @@ include 'include/header.php';
                             <label>Image (png,jpeg,jpg) (Max size 1MB)<sup class="text-danger bold">*</sup> </label>
                             <div class="input-group mb-3">
                                 <div class="custom-file">
-                                <input type="file" class="form-control" id="c_image" name="c_image" file-input="packageFile" accept=".jpg, .jpeg, .png" required>
+                                    <input type="file" class="form-control" id="c_image" name="c_image" file-input="packageFile" accept=".jpg, .jpeg, .png" required>
                                 </div>
                             </div>
                         </div>
@@ -123,19 +152,19 @@ include 'include/header.php';
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
         ?>
-        <div class="adminForm card m-3 p-5">
-            <table class="table  table-hover" id="employee_data">
-                <thead>
-                    <tr>
-                        <th>S.no</th>
-                        <th>Name</th>
-                        <th>Image</th>
-                        <th style="width:40%">Description</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
+            <div class="adminForm card m-3 p-5">
+                <table class="table  table-hover" id="employee_data">
+                    <thead>
+                        <tr>
+                            <th>S.no</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th style="width:40%">Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
                         while ($row = mysqli_fetch_array($result)) { ?>
 
                             <tr>
@@ -148,8 +177,9 @@ include 'include/header.php';
                                 <td><?php echo $row['cat_desc']; ?></td>
                                 <td>
                                     <input type="hidden" class="delete_id_value" value="<?php echo $row['cat_id'] ?>">
-                                    <a href='editcategories.php?id=<?php echo $row['cat_id'] ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i>
-                                        <a href="javascript:void(0)" class="btn btn-danger delete_data"><i class="fa fa-trash"></i></a>
+                                    <button type="button" class="btn btn-primary editbtn mr-1"><i class="fa fa-edit"></i></button>
+                                    <!-- <a href='editcategories.php?id=<?php echo $row['cat_id'] ?>' type="button" class="btn btn-primary mr-1"><i class="fa fa-edit"></i> -->
+                                    <a href="javascript:void(0)" class="btn btn-danger delete_data"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
 
@@ -160,13 +190,14 @@ include 'include/header.php';
                         echo '0 results';
                     }
                     ?>
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
     </div>
     <?php
     include 'include/footer.php';
     include 'include/js-url.php';
+    include "include/editmodal.php";
     ?>
     <?php include "include/deletemodal.php"; ?>
 
@@ -204,6 +235,25 @@ include 'include/header.php';
                             });
                         }
                     });
+            });
+            $('.editbtn').click(function(e) {
+                e.preventDefault();
+
+                var deleteid = $(this).closest("tr").find('.delete_id_value').val();
+                // console.log(editid);
+                $.ajax({
+                    type: "POST",
+                    url: "editcat.php",
+                    data: {
+                        "edit_id": deleteid,
+                    },
+                    success: function(response) {
+                        // console.log(response);
+                        $('#editdata').html(response);
+                        // $('#e_image').val(response[1]); 
+                        $('#editModal').modal('show');
+                    }
+                });
             });
         });
     </script>
