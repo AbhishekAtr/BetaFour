@@ -23,13 +23,13 @@ if (isset($_POST["edit_id"])) {
             while ($row = mysqli_fetch_array($result)) {
             ?>
                 <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="e_image" name="e_image" file-input="packageFile" accept=".jpg, .jpeg, .png" required>
+                    <input type="file" class="form-control" id="e_image" name="e_image" value="<?=$row["image_url"]?>" file-input="packageFile" accept=".jpg, .jpeg, .png">
                     <label class="input-group-text" for="inputGroupFile02">Upload</label>
                 </div>
                 <label for=""><?php echo $row['image_url'] ?></label>
         </div>
         <div class="col-lg-12 col-md-12 mb-3">
-            <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="<?php echo $row['slider_title'] ?>" required>
+            <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="<?php echo $row['slider_title'] ?>">
         </div>
     <?php
             }

@@ -21,14 +21,14 @@ if (isset($_POST["edit_id"])) {
             <div class="col-md-12 col-sm-6">
                 <div class="form-group">
                     <label for="productname" class="control-label">Product Name <sup class="text-danger bold">*</sup></label>
-                    <input type="text" class="form-control" id="pname" name="pname" placeholder="Enter product name" value="<?php echo $row['product_title'] ?>" required>
+                    <input type="text" class="form-control" id="pname" name="pname" placeholder="Enter product name" value="<?php echo $row['product_title'] ?>" >
                 </div>
             </div>
             <div class="col-md-12 col-sm-6">
                 <div class="form-group">
                     <label for="image" class="control-label">Product Image <sup class="text-danger bold">*</sup></label>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="pimage" name="pimage" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
+                        <input type="file" class="form-control" id="pimage" name="pimage" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" >
                     </div>
                 </div>
             </div>
@@ -36,14 +36,14 @@ if (isset($_POST["edit_id"])) {
                 <div class="form-group">
                     <label for="image" class="control-label">Other Image <sup class="text-danger bold">*</sup></label>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" name="fimage" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" required>
+                        <input type="file" class="form-control" name="fimage" file-input="packageFile" accept=".jpg, .jpeg, .png, .gif" >
                     </div>
                 </div>
             </div>
             <div class="col-md-12 col-sm-6">
                 <div class="form-group">
                     <label for="category" class="control-label">Category<sup class="text-danger bold">*</sup> </label>
-                    <select class="form-select" name="pcat" id="pcat" required>
+                    <select class="form-select" name="pcat" id="pcat" >
                         <option selected><?php echo $row['product_cat'] ?></option>
                         <?php
                         $sql = "SELECT * from `categories`";

@@ -41,7 +41,7 @@ a:hover {
     top: 0;
     width: 100%;
     padding: 0;
-        box-shadow: 0px 2px lightgrey;
+    box-shadow: 0px 2px lightgrey;
 }
 
 .site-navbar .toggle-button {
@@ -3122,5 +3122,39 @@ input[type=range]::-webkit-slider-thumb {
     to {
         bottom: 0;
         opacity: 0;
+    }
+}
+
+.slider-logo {
+    animation: slidein 30s linear infinite;
+    white-space: nowrap;
+}
+
+.slider-logo .logos {
+    width: 100%;
+    display: inline-block;
+    margin: 0px 0;
+}
+
+.slider-logo .logos .fab {
+    width: calc(100% / 5);
+    animation: fade-in 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+}
+
+@keyframes slidein {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

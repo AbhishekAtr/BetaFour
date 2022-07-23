@@ -106,6 +106,21 @@ if (isset($_POST["update"])) {
             $_SESSION['status_code'] = "error";
         }
     }
+    else{
+        $query = "UPDATE `products` SET `product_cat`='$product_cat',`product_title`='$product_title',`product_desc`='$product_desc' WHERE `product_id`='$id'";
+        $smt = $conn->prepare($query);
+        $smt->execute();
+        if ($query) {
+            $_SESSION['status'] = "Product Update Successfully";
+            $_SESSION['status_code'] = "success";
+            // $status = true;
+            // session_destroy();
+            // echo json_encode($insert);
+        } else {
+            $_SESSION['status'] = "File upload failed, please try again.";
+            $_SESSION['status_code'] = "error";
+        }
+    }
 }
 ?>
 <?php

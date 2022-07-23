@@ -21,19 +21,19 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="wrap-contact100 my-5">
-                    <form class="contact100-form validate-form" id="enquery" method="POST">
+                    <form class="contact100-form validate-form"  method="POST"  id="contactForm">
                         <span class="contact100-form-title">
                             Send Us A Message
                         </span>
-                        <label class="label-input100" for="first-name">Tell us your name <span class="text-danger"> *</span></label>
-                        <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
-                            <input id="first-name" class="input100" type="text" name="first-name" placeholder="First name" required>
+                        <label class="label-input100" for="name">Tell us your name <span class="text-danger"> *</span></label>
+                        <div class="wrap-input100 validate-input" data-validate="Type first name">
+                            <input id="name" class="input100" type="text" name="name" placeholder="First name" required>
                             <span class="focus-input100"></span>
                         </div>
-                        <div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
+                        <!-- <div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
                             <input class="input100" type="text" name="last-name" placeholder="Last name" required>
                             <span class="focus-input100"></span>
-                        </div>
+                        </div> -->
                         <label class="label-input100" for="email">Enter your email <span class="text-danger"> *</span></label>
                         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                             <input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com" required>
@@ -51,9 +51,10 @@
                             <span class="focus-input100"></span>
                         </div>
                         <div class="container-contact100-form-btn">
-                            <button class="contact100-form-btn btn btn-danger btn-block" onclick="submitForm('enquery')">
+                            <button class="contact100-form-btn btn btn-danger btn-block" type="button"  onclick="submitclick('contactForm')">
                                 Send Message
                             </button>
+                            <span style="color:red;" id="msg"></span>
                         </div>
                     </form>
                     <div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg')">
@@ -108,6 +109,7 @@
 </div>
 
 <?php include 'include/footer.php'; ?>
+
 
 
       <a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">

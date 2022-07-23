@@ -86,6 +86,21 @@ if (isset($_POST['update'])) {
             $_SESSION['status_code'] = "error";
         }
     }
+    else{
+        $query = "UPDATE `categories` SET `cat_title`= '$title', `cat_desc` = '$desc' WHERE cat_id='$id'";
+        $smt = $conn->prepare($query);
+        $smt->execute();
+        if ($query) {
+            $_SESSION['status'] = "Category Update Successfully";
+            $_SESSION['status_code'] = "success";
+            // $status = true;
+            // session_destroy();
+            // echo json_encode($insert);
+        } else {
+            $_SESSION['status'] = "File upload failed, please try again.";
+            $_SESSION['status_code'] = "error";
+        }
+    }
 }
 ?>
 

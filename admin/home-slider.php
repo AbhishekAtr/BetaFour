@@ -55,7 +55,6 @@ if (isset($_POST["submit"])) {
 
 if (isset($_POST['update'])) {
     $id = $_POST['edit_id'];
-
     $title = $_POST['title'];
     if (!empty($_FILES["e_image"]["name"])) {
         // Get file info 
@@ -94,6 +93,21 @@ if (isset($_POST['update'])) {
             $_SESSION['status'] = "Please select an image file to upload.";
             $_SESSION['status_code'] = "error";
             // $statusMsg = 'Please select an image file to upload.';
+        }
+    }
+    else{
+        $query = "UPDATE `home-slider` SET  `slider_title`= '$title' WHERE Id='$id'";
+        $smt = $conn->prepare($query);
+        $smt->execute();
+        if ($query) {
+            $_SESSION['status'] = "Slider Update Successfully";
+            $_SESSION['status_code'] = "success";
+            // $status = true;
+            // session_destroy();
+            // echo json_encode($insert);
+        } else {
+            $_SESSION['status'] = "File upload failed, please try again.";
+            $_SESSION['status_code'] = "error";
         }
     }
 }
